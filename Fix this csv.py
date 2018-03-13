@@ -1,6 +1,6 @@
-fileIn1 = 'KNMI_20131231.csv'
+fileIn1 = 'fietsdiefstal-rotterdam-2011-2013.csv'
 fileOut1 = 'FixedThatForYou.csv'
-column1 = 1
+column1 = 11
 column2 = 0
 KNMI = False
 
