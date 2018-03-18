@@ -1,8 +1,8 @@
-fileIn1 = 'KNMI_20180316_hourly.csv'
+fileIn1 = 'Straatroof-2011.csv'
 fileOut1 = 'FixedThatForYou.csv'
 column1 = 1
 column2 = 0
-KNMI = True
+KNMI = False
 
 import csv
 
@@ -29,6 +29,9 @@ with open(weatherStations) as csvweatherStations:
                 if row[column1][2] == "/":
                     row[column1] = row[column1].replace("/", "")
                     date = [row[column1][:2], row[column1][2:4], row[column1][4:]]
+                elif row[column1][1] == "/":
+                    row[column1] = row[column1].replace("/", "")
+                    date = [row[column1][:1], row[column1][1:4], row[column1][4:]]
                 else:
                     date = [row[column1][:4], row[column1][4:6], row[column1][6:]]
                 row = row[:column1] + date + row[(column1+1):]
