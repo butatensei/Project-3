@@ -1,0 +1,6 @@
+Create Table fietsDiefRo
+(ID char(100),Kennisname char(100),MK char(100),Mkoms char(100),Poging char(100),District char(100),Werkgebied char(100),Plaats char(100),
+Buurt char(100),Straat char(100),Dag char(100),Maand char(100),Jaar char(100),Tijd char(100),WeekEinddag char(100),Einddatum char(100),
+Eindtijd char(100),JaarGem char(100),MaandGem char(100),WeekdagGem char(100),DagdeelGem char(100),Trefwoord char(100),Soort char(100));
+ 
+Copy fietsDiefRo From 'C:\Users\dgdud\Documents\GitHub\Project-3\fietsDiefRo.csv' WITH (FORMAT csv);
