@@ -1,6 +1,27 @@
-Create Table fietsDiefRo
-(ID char(100),Kennisname char(100),MK char(100),Mkoms char(100),Poging char(100),District char(100),Werkgebied char(100),Plaats char(100),
-Buurt char(100),Straat char(100),Dag char(100),Maand char(100),Jaar char(100),Tijd char(100),WeekEinddag char(100),Einddatum char(100),
-Eindtijd char(100),JaarGem char(100),MaandGem char(100),WeekdagGem char(100),DagdeelGem char(100),Trefwoord char(100),Soort char(100));
- 
-Copy fietsDiefRo From 'C:\Users\dgdud\Documents\GitHub\Project-3\fietsDiefRo.csv' WITH (FORMAT csv);
+Drop Table if exists fietsdief.fietsdiefro;
+
+
+
+Create Table if not exists fietsdief.fietsdiefro(
+
+ID char(20),Poging char(1),District char(20),Werkgebied char(100),
+
+Plaats char(50),Buurt char(40),Straat char(100),Dag TINYINT,
+Maand TINYINT,
+Jaar SMALLINT,Tijd SMALLINT,Soort char(30),
+Primary Key (ID)
+)
+;
+
+
+LOAD DATA LOCAL INFILE
+'C:/Users/dgdud/Documents/GitHub/Project-3/fietsDiefRo.csv'
+INTO TABLE fietsdief.fietsdiefro
+
+FIELDS TERMINATED BY ','
+    
+ENCLOSED BY '"'
+
+LINES TERMINATED BY '\n'
+
+IGNORE 1 LINES
