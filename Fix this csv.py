@@ -1,8 +1,8 @@
-fileIn1 = 'Straatroof-2011.csv'
+fileIn1 = 'Weer2011-2013.csv'
 fileOut1 = 'FixedThatForYou.csv'
 column1 = 1
 column2 = 0
-KNMI = False
+KNMI = True
 
 import csv
 
@@ -26,25 +26,26 @@ with open(weatherStations) as csvweatherStations:
 
             for row in reader:
 
-                if row[column1][2] == "/":
-                    row[column1] = row[column1].replace("/", "")
-                    date = [row[column1][:2], row[column1][2:4], row[column1][4:]]
-                elif row[column1][1] == "/":
-                    row[column1] = row[column1].replace("/", "")
-                    date = [row[column1][:1], row[column1][1:4], row[column1][4:]]
-                else:
-                    date = [row[column1][:4], row[column1][4:6], row[column1][6:]]
-                row = row[:column1] + date + row[(column1+1):]
-                for i in range(len(row)):
-                    row[i] = row[i].strip(" ")
-                for i in range(len(row)):
-                    if row[i] in typeDict:
-                        row[i] = typeDict[row[i]]
-                if row[0] in stationDict:
-                    row[0] = stationDict[row[0]]
+                if not KNMI or row[0] == "ROTTERDAM":
+                    if row[column1][2] == "/":
+                        row[column1] = row[column1].replace("/", "")
+                        date = [row[column1][:2], row[column1][2:4], row[column1][4:]]
+                    elif row[column1][1] == "/":
+                        row[column1] = row[column1].replace("/", "")
+                        date = [row[column1][:1], row[column1][1:4], row[column1][4:]]
+                    else:
+                        date = [row[column1][:4], row[column1][4:6], row[column1][6:]]
+                    row = row[:column1] + date + row[(column1+1):]
+                    for i in range(len(row)):
+                        row[i] = row[i].strip(" ")
+                    for i in range(len(row)):
+                        if row[i] in typeDict:
+                            row[i] = typeDict[row[i]]
+                    if row[0] in stationDict:
+                        row[0] = stationDict[row[0]]
 
-                print(row)
+                    print(row)
 
-                with open(fileOut1, 'a',  newline='') as csvfileOut1:
-                    writer = csv.writer(csvfileOut1)
-                    writer.writerow(row)
+                    with open(fileOut1, 'a',  newline='') as csvfileOut1:
+                        writer = csv.writer(csvfileOut1)
+                        writer.writerow(row)
