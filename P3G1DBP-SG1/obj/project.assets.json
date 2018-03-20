@@ -999,24 +999,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sonix\\.nuget\\packages\\": {},
+    "C:\\Users\\dgdud\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "F:\\Project3Groep1\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
+      "projectUniqueName": "C:\\Users\\dgdud\\Documents\\GitHub\\Project-3\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
       "projectName": "P3G1DBP-SG1",
-      "projectPath": "F:\\Project3Groep1\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
-      "packagesPath": "C:\\Users\\Sonix\\.nuget\\packages\\",
-      "outputPath": "F:\\Project3Groep1\\P3G1DBP-SG1\\obj\\",
+      "projectPath": "C:\\Users\\dgdud\\Documents\\GitHub\\Project-3\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
+      "packagesPath": "C:\\Users\\dgdud\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dgdud\\Documents\\GitHub\\Project-3\\P3G1DBP-SG1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sonix\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\dgdud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
