@@ -9,3 +9,17 @@ F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
 F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
 F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
 F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.csprojResolveAssemblyReference.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.csproj.CoreCompileInputs.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.AssemblyInfoInputs.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.AssemblyInfo.cs
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.deps.json
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.runtimeconfig.json
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.runtimeconfig.dev.json
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\MySql.Data.dll
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\MySql.Data.xml
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.csproj.CopyComplete

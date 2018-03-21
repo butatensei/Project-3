@@ -1,0 +1,98 @@
+Drop Database if exists P3G1;
+
+Create Database if not exists P3G1;
+
+
+
+Drop Table if exists P3G1.fietsdiefro;
+
+
+Create Table if not exists P3G1.fietsendiefstal(
+ID char(20),
+Poging char(1),District char(20),
+Plaats char(50),Straat char(100),
+Dag TINYINT,
+Maand TINYINT,Jaar SMALLINT,Tijd SMALLINT,Soort char(30),
+
+Primary Key (ID)
+)
+;
+
+LOAD DATA LOCAL INFILE 
+'C:/Users/dgdud/Documents/GitHub/Project-3/fietsDiefRo.csv'
+
+INTO TABLE P3G1.fietsendiefstal
+
+FIELDS TERMINATED BY ','
+
+ENCLOSED BY '"'
+
+LINES TERMINATED BY '\n'
+
+IGNORE 1 LINES
+;
+
+
+
+Drop Table if exists P3G1.straatroof;
+
+
+Create Table if not exists P3G1.straatroof(
+ID char(20),
+ Dag TINYINT, Maand TINYINT,Jaar SMALLINT,
+Tijd SMALLINT,
+ Plaats char(50),Buurt char(40),Straat char(100),
+Poging char(1), Opgelost char(1),
+
+Primary Key (ID)
+)
+;
+
+LOAD DATA LOCAL INFILE 
+'C:/Users/dgdud/Documents/GitHub/Project-3/Straatroof2011.csv'
+
+INTO TABLE P3G1.straatroof
+
+FIELDS TERMINATED BY ','
+
+ENCLOSED BY '"'
+
+LINES TERMINATED BY '\n'
+
+IGNORE 1 LINES
+;
+
+
+
+
+Drop Table if exists P3G1.weer;
+
+
+
+Create Table if not exists P3G1.weer
+(
+Jaar SMALLINT,Maand TINYINT,Dag TINYINT,Uur TINYINT,
+
+Windsnelheid SMALLINT,Neerslag SMALLINT, 
+Bewolking TINYINT,
+Vochtigheid TINYINT,Mist BOOL,Regen BOOL,Sneeuw BOOL,
+
+Onweer BOOL,Ijsvorming BOOL,
+
+Primary Key (Jaar, Maand, Dag, Uur)
+)
+;
+
+LOAD DATA LOCAL INFILE 
+'C:/Users/dgdud/Documents/GitHub/Project-3/weerRo.csv'
+
+INTO TABLE P3G1.weer
+
+FIELDS TERMINATED BY ','
+
+ENCLOSED BY '"'
+
+LINES TERMINATED BY '\n'
+
+IGNORE 1 LINES
+;

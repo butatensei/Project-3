@@ -1,8 +1,8 @@
-fileIn1 = 'Weer2011-2013.csv'
+fileIn1 = 'Straatroof-2011.csv'
 fileOut1 = 'FixedThatForYou.csv'
 column1 = 1
 column2 = 0
-KNMI = True
+KNMI = False
 
 import csv
 
@@ -14,10 +14,11 @@ with open(weatherStations) as csvweatherStations:
     with open(columnTypes) as csvcolumnTypes:
         weatherReader = csv.reader(csvweatherStations)
         typeReader = csv.reader(csvcolumnTypes)
-        for row in weatherReader:
-            stationDict[row[0]] = row[4]
-        for row in typeReader:
-            typeDict[row[0]] = row[1]
+        if KNMI:
+            for row in weatherReader:
+                stationDict[row[0]] = row[4]
+            for row in typeReader:
+                typeDict[row[0]] = row[1]
 
         with open(fileIn1) as csvfileIn1:
 
@@ -32,7 +33,7 @@ with open(weatherStations) as csvweatherStations:
                         date = [row[column1][:2], row[column1][2:4], row[column1][4:]]
                     elif row[column1][1] == "/":
                         row[column1] = row[column1].replace("/", "")
-                        date = [row[column1][:1], row[column1][1:4], row[column1][4:]]
+                        date = [row[column1][:1], row[column1][1:3], row[column1][3:]]
                     else:
                         date = [row[column1][:4], row[column1][4:6], row[column1][6:]]
                     row = row[:column1] + date + row[(column1+1):]
