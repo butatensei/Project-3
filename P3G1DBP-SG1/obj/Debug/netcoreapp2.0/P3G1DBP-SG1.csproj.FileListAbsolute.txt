@@ -9,3 +9,14 @@ F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
 F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
 F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
 F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
+C:\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.deps.json
+C:\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.runtimeconfig.json
+C:\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.runtimeconfig.dev.json
+C:\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
+C:\Project-3\P3G1DBP-SG1\bin\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.csprojResolveAssemblyReference.cache
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.csproj.CoreCompileInputs.cache
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.AssemblyInfoInputs.cache
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.AssemblyInfo.cs
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.dll
+C:\Project-3\P3G1DBP-SG1\obj\Debug\netcoreapp2.0\P3G1DBP-SG1.pdb
