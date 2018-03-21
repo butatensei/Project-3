@@ -2259,7 +2259,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SLUISTOP\\.nuget\\packages\\": {},
+    "C:\\Users\\Public.DESKTOP-S0FGURK\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
@@ -2269,7 +2269,7 @@
       "projectUniqueName": "C:\\Project-3\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
       "projectName": "P3G1DBP-SG1",
       "projectPath": "C:\\Project-3\\P3G1DBP-SG1\\P3G1DBP-SG1.csproj",
-      "packagesPath": "C:\\Users\\SLUISTOP\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Public.DESKTOP-S0FGURK\\.nuget\\packages\\",
       "outputPath": "C:\\Project-3\\P3G1DBP-SG1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -2277,7 +2277,7 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\SLUISTOP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Public.DESKTOP-S0FGURK\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
