@@ -23,6 +23,10 @@ namespace Project3Groep1
         private void maandButton_Click(object sender, EventArgs e)
         {
             //MaandButton.Text = "MAAND";
+            /*
+             * TODO: PASS MONTH MODE TO UPDATECHART()
+             * INSTEAD OF MAKING IT DO EVERYTHING
+            */
             updateChart();
         }
 
@@ -53,10 +57,21 @@ namespace Project3Groep1
             /*
              * TODO:
              * ADD FUNCTIONALITY
-             * THIS BUTTON SHOULD ENABLE THE 'WEATHER' FILTER
-             * THIS FILTER SHOWS THE TOP PART OF THE BAR PER MONTH/WEEK IN RED
-             * TO INDICATE HOW MUCH OF THE BAR IS CHANGED DURING BAD WEATHER(?)
-             * WE WILL HAVE TO PERFORM A MORE COMPLEX QUERY FOR THIS
+             * 
+             * THIS BUTTON SHOULD ENABLE THE 'WEATHER' FILTER IN THREE MODES
+             * 
+             * MODE 1: ALWAYS ON
+             * THIS IS THE DEFAULT MODE
+             * THIS SHOWS THE THEFTS DURING BAD WEATHER IN THE NORMAL BAR
+             * THE BUTTON SHOULD LOOK NORMAL
+             * 
+             * MODE 2: HIGHLIGHT
+             * THIS SHOWS THE THEFTS DURING BAD WEATHER WITH A RED HIGHLIGHT ON TOP OF A NORMAL BAR
+             * THE BUTTON SHOULD LOOK HIGHLIGHTED, POSSIBLY BLUE?
+             * 
+             * MODE 3: FILTER
+             * THIS FILTERS THE THEFTS DURING BAD WEATHER FROM THE BAR, REDUCING IT
+             * THE BUTTON SHOULD LOOK DISABLED, POSSIBLY CROSSED OUT OR RED
             */
         }
     }
