@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using MySql.Data.MySqlClient;
 
 namespace Project3Groep1
@@ -26,13 +27,22 @@ namespace Project3Groep1
         {
             server = "localhost";
             database = "p3g1";
-            uid = "admin";
-            password = "admin";
+            uid = "root";
+            password = "1411";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             connection = new MySqlConnection(connectionString);
+        }
+
+        public void update()
+        {
+            OpenConnection();
+            string script = File.ReadAllText(@"P3G1.sql");
+            MySqlCommand cmd = new MySqlCommand(script, connection);
+            cmd.ExecuteNonQuery();
+            CloseConnection();
         }
 
         //open connection to database

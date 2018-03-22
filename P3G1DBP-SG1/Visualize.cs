@@ -15,10 +15,10 @@ namespace Project3Groep1
     {
         DBConnect DBConnect;
         DBConnect myConnection = new DBConnect();
-
         public Visualize()
         {
             InitializeComponent();
+            myConnection.update();
         }
 
         private void button1_Click(object sender, EventArgs e)
