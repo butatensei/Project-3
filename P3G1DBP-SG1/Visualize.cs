@@ -18,7 +18,7 @@ namespace Project3Groep1
         public Visualize()
         {
             InitializeComponent();
-            DBUpdate.update();
+            myConnection.update();
         }
 
         private void button1_Click(object sender, EventArgs e)

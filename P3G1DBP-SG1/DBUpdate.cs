@@ -13,10 +13,6 @@ namespace Project3Groep1
 
         public static void update()
         {
-
-        DBConnect Updating = new DBConnect();
-        Updating.Initialize();
-        Updating.OpenConnection();
         string script = File.ReadAllText(@"P3G1.sql");
         MySqlCommand cmd = new MySqlCommand(script, connection);
         cmd.ExecuteNonQuery();

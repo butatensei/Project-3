@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using MySql.Data.MySqlClient;
 
 namespace Project3Groep1
@@ -22,7 +23,7 @@ namespace Project3Groep1
         }
 
         //Initialize values -- make sure you adjust the info
-        public void Initialize()
+        private void Initialize()
         {
             server = "localhost";
             database = "p3g1";
@@ -35,8 +36,15 @@ namespace Project3Groep1
             connection = new MySqlConnection(connectionString);
         }
 
+        public void update()
+        {
+            string script = File.ReadAllText(@"P3G1.sql");
+            MySqlCommand cmd = new MySqlCommand(script, connection);
+            cmd.ExecuteNonQuery();
+        }
+
         //open connection to database
-        public bool OpenConnection()
+        private bool OpenConnection()
         {
             try
             {
@@ -63,7 +71,7 @@ namespace Project3Groep1
         }
 
         //Close connection
-        public bool CloseConnection()
+        private bool CloseConnection()
         {
             try
             {
