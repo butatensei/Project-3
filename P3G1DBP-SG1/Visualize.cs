@@ -32,20 +32,15 @@ namespace Project3Groep1
         {
             barChart.Series[0].Points.Clear();
             barChart.Series[0].Name = "FIETSENDIEFSTALLEN";
-            int myInt = myConnection.Count("SELECT COUNT(ID) from fietsendiefstal WHERE Jaar=2011&&Maand=1");
+
             //Okay, this one worked! Cool. Now... maybe we can loop through it.
-
-
-            // var myQuery = myConnection.GetStringList("select ID, count(ID) from p3g1.fietsendiefstal where Jaar='2011'");
-            //int myCount = myConnection.Count("SELECT `ID`, COUNT(*) from p3g1.fietsendiefstal WHERE Jaar='2011'");
-            barChart.Series[0].Points.AddXY(0,myInt);
-            //Fill the chart with data from the list entries.
-            /*foreach (int element in myCount)
+            for (int i = 1; i <= 12; i++)
             {
-                Console.WriteLine("element{0}");
-                barChart.Series[0].Points.AddXY(element[0], element[0]);
-            }*/
-
+                string myMonth = Convert.ToString(i);
+                string myCountQuery = "SELECT COUNT(ID) from fietsendiefstal WHERE Jaar=2011&&Maand=" + myMonth;
+                int myCountResult = myConnection.Count(myCountQuery);
+                barChart.Series[0].Points.AddXY(i, myCountResult);
+            }
         }
     }
 }
