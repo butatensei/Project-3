@@ -38,9 +38,11 @@ namespace Project3Groep1
 
         public void update()
         {
+            OpenConnection();
             string script = File.ReadAllText(@"P3G1.sql");
             MySqlCommand cmd = new MySqlCommand(script, connection);
             cmd.ExecuteNonQuery();
+            CloseConnection();
         }
 
         //open connection to database
