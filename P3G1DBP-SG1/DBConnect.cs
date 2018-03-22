@@ -22,12 +22,12 @@ namespace Project3Groep1
         }
 
         //Initialize values -- make sure you adjust the info
-        private void Initialize()
+        public void Initialize()
         {
             server = "localhost";
             database = "p3g1";
-            uid = "admin";
-            password = "admin";
+            uid = "root";
+            password = "1411";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -36,7 +36,7 @@ namespace Project3Groep1
         }
 
         //open connection to database
-        private bool OpenConnection()
+        public bool OpenConnection()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Project3Groep1
         }
 
         //Close connection
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {

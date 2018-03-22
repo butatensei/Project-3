@@ -23,3 +23,17 @@ C:\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CoreCompileInputs.
 C:\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
 C:\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.exe
 C:\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\P3G1.sql
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\MySql.Data.dll
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\MySql.Data.xml
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csprojResolveAssemblyReference.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1.Visualize.resources
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.GenerateResource.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CoreCompileInputs.cache
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.pdb
