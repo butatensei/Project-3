@@ -86,7 +86,7 @@ namespace Project3Groep1
 
         //Performs a query to get a whole bunch of strings. Maybe.
         //Honestly, I just don't know anymore.
-        /*public List<string>[] GetStringList(string passedQuery)
+        /*public List<string>[] GetStringList(string, passedQuery)
         {
             //Create a list to store the result
             List<string>[] list = new List<string>[3];
