@@ -37,3 +37,16 @@ C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Fo
 C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
 C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\dgdud\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\WindowsFormsApp1.pdb
+F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\P3G1.sql
+F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\MySql.Data.xml
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csprojResolveAssemblyReference.cache
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1.Visualize.resources
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.GenerateResource.cache
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CoreCompileInputs.cache
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
+F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe.config
+F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe
+F:\Project3Groep1\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.pdb
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1.Properties.Resources.resources
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.exe
+F:\Project3Groep1\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.pdb

@@ -31,55 +31,113 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.testButton = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.MaandButton = new System.Windows.Forms.Button();
+            this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.WeatherButton = new System.Windows.Forms.Button();
+            this.RainButton = new System.Windows.Forms.Button();
+            this.FrostButton = new System.Windows.Forms.Button();
+            this.WeekButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
-            // testButton
+            // MaandButton
             // 
-            this.testButton.Location = new System.Drawing.Point(75, 369);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(75, 23);
-            this.testButton.TabIndex = 0;
-            this.testButton.Text = "TEST";
-            this.testButton.UseVisualStyleBackColor = true;
-            this.testButton.Click += new System.EventHandler(this.button1_Click);
+            this.MaandButton.Location = new System.Drawing.Point(148, 349);
+            this.MaandButton.Name = "MaandButton";
+            this.MaandButton.Size = new System.Drawing.Size(75, 23);
+            this.MaandButton.TabIndex = 0;
+            this.MaandButton.Text = "Maand";
+            this.MaandButton.UseVisualStyleBackColor = true;
+            this.MaandButton.Click += new System.EventHandler(this.maandButton_Click);
             // 
-            // chart1
+            // barChart
             // 
+            chartArea1.AxisX.Maximum = 12D;
+            chartArea1.AxisX.Minimum = 1D;
+            chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.barChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(41, 23);
-            this.chart1.Name = "chart1";
+            this.barChart.Legends.Add(legend1);
+            this.barChart.Location = new System.Drawing.Point(148, 21);
+            this.barChart.Name = "barChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "ShowData";
+            series1.Name = "Fietsendiefstallen";
+            this.barChart.Series.Add(series1);
+            this.barChart.Size = new System.Drawing.Size(614, 322);
+            this.barChart.TabIndex = 1;
+            this.barChart.Text = "ShowData";
+            title1.Name = "Fietsendiefstallen";
+            this.barChart.Titles.Add(title1);
+            // 
+            // WeatherButton
+            // 
+            this.WeatherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.WeatherButton.Location = new System.Drawing.Point(12, 21);
+            this.WeatherButton.Name = "WeatherButton";
+            this.WeatherButton.Size = new System.Drawing.Size(76, 74);
+            this.WeatherButton.TabIndex = 2;
+            this.WeatherButton.Text = "☁";
+            this.WeatherButton.UseVisualStyleBackColor = true;
+            this.WeatherButton.Click += new System.EventHandler(this.WeatherButton_Click);
+            // 
+            // RainButton
+            // 
+            this.RainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.RainButton.Location = new System.Drawing.Point(12, 101);
+            this.RainButton.Name = "RainButton";
+            this.RainButton.Size = new System.Drawing.Size(76, 74);
+            this.RainButton.TabIndex = 3;
+            this.RainButton.Text = "☔";
+            this.RainButton.UseVisualStyleBackColor = true;
+            // 
+            // FrostButton
+            // 
+            this.FrostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.FrostButton.Location = new System.Drawing.Point(12, 181);
+            this.FrostButton.Name = "FrostButton";
+            this.FrostButton.Size = new System.Drawing.Size(76, 74);
+            this.FrostButton.TabIndex = 4;
+            this.FrostButton.Text = "❄";
+            this.FrostButton.UseVisualStyleBackColor = true;
+            // 
+            // WeekButton
+            // 
+            this.WeekButton.Location = new System.Drawing.Point(229, 349);
+            this.WeekButton.Name = "WeekButton";
+            this.WeekButton.Size = new System.Drawing.Size(75, 23);
+            this.WeekButton.TabIndex = 5;
+            this.WeekButton.Text = "Week";
+            this.WeekButton.UseVisualStyleBackColor = true;
             // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.chart1);
-            this.Controls.Add(this.testButton);
+            this.Controls.Add(this.WeekButton);
+            this.Controls.Add(this.FrostButton);
+            this.Controls.Add(this.RainButton);
+            this.Controls.Add(this.WeatherButton);
+            this.Controls.Add(this.barChart);
+            this.Controls.Add(this.MaandButton);
             this.Name = "Visualize";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.Text = "Fietsenfiefstallen & het Weer";
+            ((System.ComponentModel.ISupportInitialize)(this.barChart)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button testButton;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button MaandButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart barChart;
+        private System.Windows.Forms.Button WeatherButton;
+        private System.Windows.Forms.Button RainButton;
+        private System.Windows.Forms.Button FrostButton;
+        private System.Windows.Forms.Button WeekButton;
     }
 }
 
