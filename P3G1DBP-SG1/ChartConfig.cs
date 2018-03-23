@@ -14,23 +14,23 @@ namespace Project3Groep1
         /// <summary>
         /// boolean -- Which subgroup's data we are displaying; fietsendiefstal (false) or straatroof (true).
         /// </summary>
-        private bool SubGroupData;
+        public bool SubGroupData;
         /// <summary>
         /// integer, 0-12 -- Which time scale we display; whole year (0) or specific months (1-12).
         /// </summary>
-        private int TimeMode;
+        public int TimeMode;
         /// <summary>
         /// integer, 0-2 -- How we are displaying precipitation (show, highlight,filter out) -- master variable for the other two weather-related variables.
         /// </summary>
-        private int PrecipitationMode;
+        public int PrecipitationMode;
         /// <summary>
         /// integer, 0-2 -- How we display rain (show, highlight, filter out).
         /// </summary>
-        private int RainMode;
+        public int RainMode;
         /// <summary>
         /// integer, 0-2 -- How we display snow (show, highlight, filter out).
         /// </summary>
-        private int SnowMode;
+        public int SnowMode;
 
         /// <summary>
         /// constructor for chart config.
