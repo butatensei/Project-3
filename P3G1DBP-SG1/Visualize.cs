@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Project3Groep1
 {
@@ -47,6 +48,7 @@ namespace Project3Groep1
             {
                 string myMonth = Convert.ToString(i);
                 string myCountQuery = "SELECT COUNT(ID) from fietsendiefstal WHERE Jaar=2011&&Maand=" + myMonth;
+                Console.WriteLine(myCountQuery);
                 int myCountResult = myConnection.Count(myCountQuery);
                 barChart.Series[0].Points.AddXY(i, myCountResult);
             }
