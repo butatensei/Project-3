@@ -38,6 +38,8 @@
             this.RainButton = new System.Windows.Forms.Button();
             this.FrostButton = new System.Windows.Forms.Button();
             this.WeekButton = new System.Windows.Forms.Button();
+            this.NeerslagDropdown = new System.Windows.Forms.ComboBox();
+            this.TestDropdownLaber = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,11 +114,35 @@
             this.WeekButton.Text = "Week";
             this.WeekButton.UseVisualStyleBackColor = true;
             // 
+            // NeerslagDropdown
+            // 
+            this.NeerslagDropdown.FormattingEnabled = true;
+            this.NeerslagDropdown.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2"});
+            this.NeerslagDropdown.Location = new System.Drawing.Point(12, 351);
+            this.NeerslagDropdown.Name = "NeerslagDropdown";
+            this.NeerslagDropdown.Size = new System.Drawing.Size(121, 21);
+            this.NeerslagDropdown.TabIndex = 6;
+            // 
+            // TestDropdownLaber
+            // 
+            this.TestDropdownLaber.AutoSize = true;
+            this.TestDropdownLaber.Location = new System.Drawing.Point(13, 332);
+            this.TestDropdownLaber.Name = "TestDropdownLaber";
+            this.TestDropdownLaber.Size = new System.Drawing.Size(76, 13);
+            this.TestDropdownLaber.TabIndex = 7;
+            this.TestDropdownLaber.Text = "neerslag mode";
+            this.TestDropdownLaber.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TestDropdownLaber);
+            this.Controls.Add(this.NeerslagDropdown);
             this.Controls.Add(this.WeekButton);
             this.Controls.Add(this.FrostButton);
             this.Controls.Add(this.RainButton);
@@ -127,6 +153,7 @@
             this.Text = "Fietsenfiefstallen & het Weer";
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -138,6 +165,8 @@
         private System.Windows.Forms.Button RainButton;
         private System.Windows.Forms.Button FrostButton;
         private System.Windows.Forms.Button WeekButton;
+        private System.Windows.Forms.ComboBox NeerslagDropdown;
+        private System.Windows.Forms.Label TestDropdownLaber;
     }
 }
 

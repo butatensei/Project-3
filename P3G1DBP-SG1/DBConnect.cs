@@ -9,6 +9,9 @@ using MySql.Data.MySqlClient;
 
 namespace Project3Groep1
 {
+    /// <summary>
+    /// Object that holds a connection to the database, and hosts all our database-related functions/methods.
+    /// </summary>
     class DBConnect//Database connection object
     {
         private MySqlConnection connection;
