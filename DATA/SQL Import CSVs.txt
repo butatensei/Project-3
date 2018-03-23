@@ -76,7 +76,7 @@ Windsnelheid SMALLINT, Temperatuur SMALLINT, Neerslag SMALLINT,
 Weercode SMALLINT,Mist BOOL,Regen BOOL,Sneeuw BOOL,
 Onweer BOOL,Ijsvorming BOOL, Dagjaar SMALLINT, TemperatuurGem SMALLINT,
 
-Primary Key (Dagjaar)
+Primary Key (Dagjaar, Uur)
 )
 ;
 
