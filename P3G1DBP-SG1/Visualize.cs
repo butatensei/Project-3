@@ -15,6 +15,7 @@ namespace Project3Groep1
     public partial class Visualize : Form
     {
         DBConnect myConnection = new DBConnect();
+        ChartConfig MasterChartConfig = new ChartConfig();
         public Visualize()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace Project3Groep1
              * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
              * AND BUILD OUR QUERY OUT OF THAT!
             */
-
+            
             //Loop through the 12 months of 2011, add every iteration as a bar
             for (int i = 1; i <= 12; i++)
             {
@@ -75,6 +76,11 @@ namespace Project3Groep1
              * THIS FILTERS THE THEFTS DURING BAD WEATHER FROM THE BAR, REDUCING IT
              * THE BUTTON SHOULD LOOK DISABLED, POSSIBLY CROSSED OUT OR RED
             */
+        }
+
+        private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
