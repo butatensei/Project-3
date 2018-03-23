@@ -47,8 +47,20 @@ namespace Project3Groep1
             //Loop through the 12 months of 2011, add every iteration as a bar
             for (int i = 1; i <= 12; i++)
             {
-                string myMonth = Convert.ToString(i);
-                string myCountQuery = "SELECT COUNT(ID) from fietsendiefstal WHERE Jaar=2011&&Maand=" + myMonth;
+                private string myMonth = Convert.ToString(i);
+                private int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
+                private bool mySubgroupData = MasterChartConfig.SubGroupData;
+                private string myTable;
+                if (mySubgroupData)
+                {
+                    string myTable = "fietsendiefstal";
+                }
+                else
+                {
+                    string myTable = "straatroof";
+                }
+                // write query that gets weather data and checks it with primary data
+                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Maand=" + myMonth;
                 Console.WriteLine(myCountQuery);
                 int myCountResult = myConnection.Count(myCountQuery);
                 barChart.Series[0].Points.AddXY(i, myCountResult);
