@@ -15,6 +15,7 @@ namespace Project3Groep1
     public partial class Visualize : Form
     {
         DBConnect myConnection = new DBConnect();
+        ChartConfig MasterChartConfig = new ChartConfig();
         public Visualize()
         {
             InitializeComponent();
@@ -77,9 +78,9 @@ namespace Project3Groep1
             */
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -125,6 +125,7 @@
             this.NeerslagDropdown.Name = "NeerslagDropdown";
             this.NeerslagDropdown.Size = new System.Drawing.Size(121, 21);
             this.NeerslagDropdown.TabIndex = 6;
+            this.NeerslagDropdown.SelectedIndexChanged += new System.EventHandler(this.NeerslagDropdown_SelectedIndexChanged);
             // 
             // TestDropdownLaber
             // 
@@ -134,7 +135,6 @@
             this.TestDropdownLaber.Size = new System.Drawing.Size(76, 13);
             this.TestDropdownLaber.TabIndex = 7;
             this.TestDropdownLaber.Text = "neerslag mode";
-            this.TestDropdownLaber.Click += new System.EventHandler(this.label1_Click);
             // 
             // Visualize
             // 
