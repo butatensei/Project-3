@@ -80,7 +80,7 @@ namespace Project3Groep1
 
         private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            MasterChartConfig.PrecipitationMode = NeerslagDropdown.SelectedIndex;
         }
     }
 }
