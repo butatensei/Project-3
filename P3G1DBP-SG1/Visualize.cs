@@ -39,33 +39,36 @@ namespace Project3Groep1
         {
             barChart.Series[0].Points.Clear(); //clear the chart for starters
             /*
-             * TODO: SCALABILITY
-             * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
-             * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
-             * AND BUILD OUR QUERY OUT OF THAT!
+            * TODO: SCALABILITY
+            * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
+            * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
+            * AND BUILD OUR QUERY OUT OF THAT!
             */
-            
+            //set up variables for use in our looped checks...
+            int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
+            bool mySubgroupData = MasterChartConfig.SubGroupData;
+            string myTable;
+
+            if (mySubgroupData)
+            {
+                myTable = "fietsendiefstal";
+            }
+            else
+            {
+                myTable = "straatroof";
+            }
+
             //Loop through all days
             for (int i = 1; i <= 365; i++)
             {
                 string myDay = Convert.ToString(i);
-                int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
-                bool mySubgroupData = MasterChartConfig.SubGroupData;
-                string myTable;    
-
-                if (mySubgroupData)
-                {
-                    myTable = "fietsendiefstal";
-                }
-                else
-                {
-                    myTable = "straatroof";
-                }
                 // write query that gets weather data and checks it with primary data
                 string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
                 int myCountResult = myConnection.Count(myCountQuery);
-                barChart.Series[0].Points.AddXY(i, myCountResult);
+                int myTemp = 5; //temp magic number
+                int myTotalCount = 5; //temp magic number
+                barChart.Series[0].Points.AddXY(myTemp, myTotalCount);
             }
         }
 
