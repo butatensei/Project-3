@@ -37,22 +37,20 @@ namespace Project3Groep1
 
         public void updateChart()
         {
-            barChart.Series[0].Points.Clear();
-            //barChart.Series[0].Name = "FIETSENDIEFSTALLEN";
-
+            barChart.Series[0].Points.Clear(); //clear the chart for starters
             /*
              * TODO: SCALABILITY
              * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
              * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
              * AND BUILD OUR QUERY OUT OF THAT!
             */
-
-            //Loop through the 12 months of 2011, add every iteration as a bar
-            for (int i = 1; i <= 12; i++)
+            
+            //Loop through all days
+            for (int i = 1; i <= 365; i++)
             {
-                private string myMonth = Convert.ToString(i);
-                private int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
-                private bool mySubgroupData = MasterChartConfig.SubGroupData;
+                string myDay = Convert.ToString(i);
+                int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
+                bool mySubgroupData = MasterChartConfig.SubGroupData;
                 string myTable;    
 
                 if (mySubgroupData)
@@ -64,7 +62,7 @@ namespace Project3Groep1
                     myTable = "straatroof";
                 }
                 // write query that gets weather data and checks it with primary data
-                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Maand=" + myMonth;
+                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
                 int myCountResult = myConnection.Count(myCountQuery);
                 barChart.Series[0].Points.AddXY(i, myCountResult);
