@@ -19,7 +19,7 @@ Primary Key (ID)
 ;
 
 LOAD DATA LOCAL INFILE 
-'C:/Users/dgdud/Documents/GitHub/Project-3/fietsDiefRo.csv'
+'C:/Users/dgdud/Documents/GitHub/Project-3/DATA/fietsDiefRo.csv'
 
 INTO TABLE P3G1.fietsendiefstal
 
@@ -49,7 +49,7 @@ Primary Key (ID)
 ;
 
 LOAD DATA LOCAL INFILE 
-'C:/Users/dgdud/Documents/GitHub/Project-3/Straatroof2011.csv'
+'C:/Users/dgdud/Documents/GitHub/Project-3/DATA/Straatroof2011.csv'
 
 INTO TABLE P3G1.straatroof
 
@@ -72,11 +72,8 @@ Drop Table if exists P3G1.weer;
 Create Table if not exists P3G1.weer
 (
 Jaar SMALLINT,Maand TINYINT,Dag TINYINT,Uur TINYINT,
-
-Windsnelheid SMALLINT,Neerslag SMALLINT, 
-Bewolking TINYINT,
-Vochtigheid TINYINT,Mist BOOL,Regen BOOL,Sneeuw BOOL,
-
+Windsnelheid SMALLINT, Temperatuur SMALLINT, Neerslag SMALLINT,
+Weercode SMALLINT,Mist BOOL,Regen BOOL,Sneeuw BOOL,
 Onweer BOOL,Ijsvorming BOOL,
 
 Primary Key (Jaar, Maand, Dag, Uur)
@@ -84,7 +81,7 @@ Primary Key (Jaar, Maand, Dag, Uur)
 ;
 
 LOAD DATA LOCAL INFILE 
-'C:/Users/dgdud/Documents/GitHub/Project-3/weerRo.csv'
+'C:/Users/dgdud/Documents/GitHub/Project-3/DATA/weerRo.csv'
 
 INTO TABLE P3G1.weer
 
