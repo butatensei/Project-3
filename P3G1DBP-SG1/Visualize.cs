@@ -15,6 +15,9 @@ namespace Project3Groep1
     public partial class Visualize : Form
     {
         DBConnect myConnection = new DBConnect();
+        /// <summary>
+        /// The master config class used to store all our variables
+        /// </summary>
         ChartConfig MasterChartConfig = new ChartConfig();
         public Visualize()
         {
@@ -43,21 +46,22 @@ namespace Project3Groep1
              * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
              * AND BUILD OUR QUERY OUT OF THAT!
             */
-            
+
             //Loop through the 12 months of 2011, add every iteration as a bar
             for (int i = 1; i <= 12; i++)
             {
                 private string myMonth = Convert.ToString(i);
                 private int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
                 private bool mySubgroupData = MasterChartConfig.SubGroupData;
-                private string myTable;
+                string myTable;    
+
                 if (mySubgroupData)
                 {
-                    string myTable = "fietsendiefstal";
+                    myTable = "fietsendiefstal";
                 }
                 else
                 {
-                    string myTable = "straatroof";
+                    myTable = "straatroof";
                 }
                 // write query that gets weather data and checks it with primary data
                 string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Maand=" + myMonth;
