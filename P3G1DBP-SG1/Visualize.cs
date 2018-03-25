@@ -63,13 +63,16 @@ namespace Project3Groep1
             {
                 string myDay = Convert.ToString(i);
                 // write query that gets weather data and checks it with primary data
-                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Dag=" + myDay;
+                string myCountQuery = "SELECT COUNT(Dag) from " + myTable;// + "WHERE Jaar=2011&&Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
+                Console.WriteLine(i);
                 int myCountResult = myConnection.Count(myCountQuery);
+                Console.WriteLine(myCountResult);
                 int myTemp = 5; //temp magic number
                 int myTotalCount = 5; //temp magic number
                 barChart.Series[0].Points.AddXY(myTemp, myTotalCount);
             }
+            Console.WriteLine("PROGRAM COMPLETE");
         }
 
         private void WeatherButton_Click(object sender, EventArgs e)
