@@ -72,7 +72,7 @@ namespace Project3Groep1
                 myTotalCount = myTotalCount + myCountResult;
                 barChart.Series[0].Points.AddXY(i, myCountResult);
             }
-            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE USED:" + myTable);
+            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
         }
 
         private void WeatherButton_Click(object sender, EventArgs e)
@@ -96,6 +96,27 @@ namespace Project3Groep1
              * THIS FILTERS THE THEFTS DURING BAD WEATHER FROM THE BAR, REDUCING IT
              * THE BUTTON SHOULD LOOK DISABLED, POSSIBLY CROSSED OUT OR RED
             */
+
+            if (MasterChartConfig.PrecipitationMode <2)
+            {
+                MasterChartConfig.PrecipitationMode++;
+                if (MasterChartConfig.PrecipitationMode == 1)
+                {
+                    WeatherButton.ForeColor = System.Drawing.Color.DodgerBlue;
+                }
+                else
+                {
+                    WeatherButton.ForeColor = System.Drawing.Color.DarkRed;
+                }
+            }
+            else 
+            {
+                MasterChartConfig.PrecipitationMode = 0;
+                WeatherButton.ForeColor = System.Drawing.Color.Black;
+            }
+
+            updateChart(); //We pressed a button, so update the chart!
+
         }
 
         private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,7 +135,8 @@ namespace Project3Groep1
             {
                 SubGroupButton.Text = "🚲";
             }
-            
+
+            updateChart(); //We pressed a button, so update the chart!
         }
     }
 }
