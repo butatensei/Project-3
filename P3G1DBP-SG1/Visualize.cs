@@ -48,6 +48,7 @@ namespace Project3Groep1
             int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
             bool mySubgroupData = MasterChartConfig.SubGroupData;
             string myTable;
+            int myTotalCount = 0;
 
             if (mySubgroupData)
             {
@@ -57,22 +58,21 @@ namespace Project3Groep1
             {
                 myTable = "straatroof";
             }
-
             //Loop through all days
             for (int i = 1; i <= 365; i++)
             {
                 string myDay = Convert.ToString(i);
                 // write query that gets weather data and checks it with primary data
-                string myCountQuery = "SELECT COUNT(Dag) from " + myTable;// + "WHERE Jaar=2011&&Dag=" + myDay;
+                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + " WHERE Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
                 Console.WriteLine(i);
                 int myCountResult = myConnection.Count(myCountQuery);
                 Console.WriteLine(myCountResult);
                 int myTemp = 5; //temp magic number
-                int myTotalCount = 5; //temp magic number
-                barChart.Series[0].Points.AddXY(myTemp, myTotalCount);
+                myTotalCount = myTotalCount + myCountResult;
+                barChart.Series[0].Points.AddXY(i, myCountResult);
             }
-            Console.WriteLine("PROGRAM COMPLETE");
+            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE USED:" + myTable);
         }
 
         private void WeatherButton_Click(object sender, EventArgs e)

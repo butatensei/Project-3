@@ -55,7 +55,7 @@
             // 
             // barChart
             // 
-            chartArea1.AxisX.Maximum = 12D;
+            chartArea1.AxisX.Maximum = 35D;
             chartArea1.AxisX.Minimum = 1D;
             chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
             chartArea1.Name = "ChartArea1";
