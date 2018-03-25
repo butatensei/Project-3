@@ -15,6 +15,10 @@ namespace Project3Groep1
     public partial class Visualize : Form
     {
         DBConnect myConnection = new DBConnect();
+        /// <summary>
+        /// The master config class used to store all our variables
+        /// </summary>
+        ChartConfig MasterChartConfig = new ChartConfig();
         public Visualize()
         {
             InitializeComponent();
@@ -33,24 +37,38 @@ namespace Project3Groep1
 
         public void updateChart()
         {
-            barChart.Series[0].Points.Clear();
-            //barChart.Series[0].Name = "FIETSENDIEFSTALLEN";
-
+            barChart.Series[0].Points.Clear(); //clear the chart for starters
             /*
-             * TODO: SCALABILITY
-             * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
-             * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
-             * AND BUILD OUR QUERY OUT OF THAT!
+            * TODO: SCALABILITY
+            * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
+            * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
+            * AND BUILD OUR QUERY OUT OF THAT!
             */
+            //set up variables for use in our looped checks...
+            int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
+            bool mySubgroupData = MasterChartConfig.SubGroupData;
+            string myTable;
 
-            //Loop through the 12 months of 2011, add every iteration as a bar
-            for (int i = 1; i <= 12; i++)
+            if (mySubgroupData)
             {
-                string myMonth = Convert.ToString(i);
-                string myCountQuery = "SELECT COUNT(ID) from fietsendiefstal WHERE Jaar=2011&&Maand=" + myMonth;
+                myTable = "fietsendiefstal";
+            }
+            else
+            {
+                myTable = "straatroof";
+            }
+
+            //Loop through all days
+            for (int i = 1; i <= 365; i++)
+            {
+                string myDay = Convert.ToString(i);
+                // write query that gets weather data and checks it with primary data
+                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + "WHERE Jaar=2011&&Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
                 int myCountResult = myConnection.Count(myCountQuery);
-                barChart.Series[0].Points.AddXY(i, myCountResult);
+                int myTemp = 5; //temp magic number
+                int myTotalCount = 5; //temp magic number
+                barChart.Series[0].Points.AddXY(myTemp, myTotalCount);
             }
         }
 
@@ -75,6 +93,11 @@ namespace Project3Groep1
              * THIS FILTERS THE THEFTS DURING BAD WEATHER FROM THE BAR, REDUCING IT
              * THE BUTTON SHOULD LOOK DISABLED, POSSIBLY CROSSED OUT OR RED
             */
+        }
+
+        private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MasterChartConfig.PrecipitationMode = NeerslagDropdown.SelectedIndex;
         }
     }
 }
