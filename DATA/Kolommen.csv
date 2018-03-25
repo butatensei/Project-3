@@ -1,7 +1,9 @@
+STN,Station
 YYYY,Jaar
 MM,Maand
 DD,Dag
 HH,Uur
+T,Temperatuur
 FH,Windsnelheid
 RH,Neerslag
 N,Bewolking
