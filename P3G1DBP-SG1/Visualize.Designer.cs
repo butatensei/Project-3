@@ -40,6 +40,7 @@
             this.WeekButton = new System.Windows.Forms.Button();
             this.NeerslagDropdown = new System.Windows.Forms.ComboBox();
             this.TestDropdownLaber = new System.Windows.Forms.Label();
+            this.SubGroupButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,11 +137,23 @@
             this.TestDropdownLaber.TabIndex = 7;
             this.TestDropdownLaber.Text = "neerslag mode";
             // 
+            // SubGroupButton
+            // 
+            this.SubGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.SubGroupButton.Location = new System.Drawing.Point(712, 364);
+            this.SubGroupButton.Name = "SubGroupButton";
+            this.SubGroupButton.Size = new System.Drawing.Size(76, 74);
+            this.SubGroupButton.TabIndex = 8;
+            this.SubGroupButton.Text = "🚲";
+            this.SubGroupButton.UseVisualStyleBackColor = true;
+            this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
+            // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SubGroupButton);
             this.Controls.Add(this.TestDropdownLaber);
             this.Controls.Add(this.NeerslagDropdown);
             this.Controls.Add(this.WeekButton);
@@ -167,6 +180,7 @@
         private System.Windows.Forms.Button WeekButton;
         private System.Windows.Forms.ComboBox NeerslagDropdown;
         private System.Windows.Forms.Label TestDropdownLaber;
+        private System.Windows.Forms.Button SubGroupButton;
     }
 }
 

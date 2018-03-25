@@ -63,7 +63,7 @@ namespace Project3Groep1
             {
                 string myDay = Convert.ToString(i);
                 // write query that gets weather data and checks it with primary data
-                string myCountQuery = "SELECT COUNT(Dag) from " + myTable + " WHERE Dag=" + myDay;
+                string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
                 Console.WriteLine(myCountQuery);
                 Console.WriteLine(i);
                 int myCountResult = myConnection.Count(myCountQuery);
@@ -101,6 +101,20 @@ namespace Project3Groep1
         private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             MasterChartConfig.PrecipitationMode = NeerslagDropdown.SelectedIndex;
+        }
+
+        private void SubGroupButton_Click(object sender, EventArgs e)
+        {
+            MasterChartConfig.SubGroupData = !MasterChartConfig.SubGroupData; //Flip the bool.
+            if (MasterChartConfig.SubGroupData) //true, straatroof
+            {
+                SubGroupButton.Text = "💰";
+            }
+            else //false, fietsendiefstal
+            {
+                SubGroupButton.Text = "🚲";
+            }
+            
         }
     }
 }
