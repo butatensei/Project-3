@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.MaandButton = new System.Windows.Forms.Button();
             this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WeatherButton = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.NeerslagDropdown = new System.Windows.Forms.ComboBox();
             this.TestDropdownLaber = new System.Windows.Forms.Label();
             this.SubGroupButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,24 +57,24 @@
             // 
             // barChart
             // 
-            chartArea5.AxisX.Maximum = 35D;
-            chartArea5.AxisX.Minimum = 1D;
-            chartArea5.AxisX.ScaleBreakStyle.Spacing = 5D;
-            chartArea5.Name = "ChartArea1";
-            this.barChart.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.barChart.Legends.Add(legend5);
+            chartArea1.AxisX.Maximum = 365D;
+            chartArea1.AxisX.Minimum = 1D;
+            chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
+            chartArea1.Name = "ChartArea1";
+            this.barChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.barChart.Legends.Add(legend1);
             this.barChart.Location = new System.Drawing.Point(148, 21);
             this.barChart.Name = "barChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Fietsendiefstallen";
-            this.barChart.Series.Add(series5);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Fietsendiefstallen";
+            this.barChart.Series.Add(series1);
             this.barChart.Size = new System.Drawing.Size(614, 322);
             this.barChart.TabIndex = 1;
             this.barChart.Text = "ShowData";
-            title5.Name = "Fietsendiefstallen";
-            this.barChart.Titles.Add(title5);
+            title1.Name = "Fietsendiefstallen";
+            this.barChart.Titles.Add(title1);
             // 
             // WeatherButton
             // 
@@ -96,6 +97,7 @@
             this.RainButton.TabIndex = 3;
             this.RainButton.Text = "☔";
             this.RainButton.UseVisualStyleBackColor = true;
+            this.RainButton.Click += new System.EventHandler(this.RainButton_Click);
             // 
             // FrostButton
             // 
@@ -106,6 +108,7 @@
             this.FrostButton.TabIndex = 4;
             this.FrostButton.Text = "❄";
             this.FrostButton.UseVisualStyleBackColor = true;
+            this.FrostButton.Click += new System.EventHandler(this.FrostButton_Click);
             // 
             // WeekButton
             // 
@@ -149,11 +152,23 @@
             this.SubGroupButton.UseVisualStyleBackColor = true;
             this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.button1.Location = new System.Drawing.Point(369, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(264, 74);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "update";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.SubGroupButton);
             this.Controls.Add(this.TestDropdownLaber);
             this.Controls.Add(this.NeerslagDropdown);
@@ -182,6 +197,7 @@
         private System.Windows.Forms.ComboBox NeerslagDropdown;
         private System.Windows.Forms.Label TestDropdownLaber;
         private System.Windows.Forms.Button SubGroupButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
