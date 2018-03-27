@@ -91,7 +91,7 @@ namespace Project3Groep1
         public List<string>[] dbSELECT(string passedQuery)
         { 
             string query = passedQuery;
-
+            Console.WriteLine("start");
             //Create a list to store the result
             List<string>[] list = new List<string>[2];
             list[0] = new List<string>();
@@ -109,13 +109,14 @@ namespace Project3Groep1
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-
+                    Console.WriteLine(list);
                     list[0].Add(dataReader["Count(ID)"] + "");
+                    Console.WriteLine(list[0]);
                     list[1].Add(dataReader["TemperatuurGem"] + "");
+                    Console.WriteLine(list[1]);
+
                     
                 }
-
-                Console.ReadLine();
 
                 //close Data Reader
                 dataReader.Close();

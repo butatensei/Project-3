@@ -171,7 +171,7 @@ namespace Project3Groep1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            myConnection.dbSELECT("SELECT COUNT(ID) from " + "straatroof" + " WHERE Dag=" + "1");
+            myConnection.dbSELECT("Select count(ID), TemperatuurGem From straatroof, weer Where straatroof.Dag = weer.Dag and straatroof.Maand = weer.Maand and straatroof.Jaar = weer.Jaar and TemperatuurGem < -50");
         }
 
         private void Visualize_Load(object sender, EventArgs e)
