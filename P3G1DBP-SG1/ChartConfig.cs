@@ -33,6 +33,11 @@ namespace Project3Groep1
         public int SnowMode;
 
         /// <summary>
+        /// integer, 0-2 -- How we are displaying sunny weather (aka not precipitation) (show, highlight,filter out)
+        /// </summary>
+        public int SunMode;
+
+        /// <summary>
         /// constructor for chart config.
         /// </summary>
         public ChartConfig()

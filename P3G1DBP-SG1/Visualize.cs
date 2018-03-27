@@ -37,6 +37,7 @@ namespace Project3Groep1
 
         public bool updateChart()
         {
+            FlipEnabledAllButtons();
             barChart.Series[0].Points.Clear(); //clear the chart for starters
             /*
             * TODO: SCALABILITY
@@ -75,6 +76,7 @@ namespace Project3Groep1
                 barChart.Series[0].Points.AddXY(i, myCountResult);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
+            FlipEnabledAllButtons();
             return true;
         }
 
@@ -128,6 +130,40 @@ namespace Project3Groep1
             return passedVariable;
         }
 
+        /// <summary>
+        /// Returns a list of controls (buttons)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="list"></param>
+        public void GetAllControl(Control c, List<Control> list)
+        {
+            foreach (Control control in c.Controls)
+            {
+                list.Add(control);
+
+                if (control.GetType() == typeof(Panel))
+                    GetAllControl(control, list);
+            }
+        }
+
+        /// <summary>
+        /// Flips 'enabled' property of a button
+        /// </summary>
+        public void FlipEnabledAllButtons()
+        {
+            List<Control> AllButtons = new List<Control>();
+
+            GetAllControl(this, AllButtons);
+
+            foreach (Control control in AllButtons)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    control.Enabled = !control.Enabled;
+                }
+            }
+        }
+
         private void WeatherButton_Click(object sender, EventArgs e)
         {
             //This calls the generic button function, less copypasta.
@@ -147,11 +183,10 @@ namespace Project3Groep1
             updateChart();
         }
 
-        
-        private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        private void sunButton_Click(object sender, EventArgs e)
         {
-            //This dropdown is now obsolete due to the IntegerButtonPressed() function.
-            MasterChartConfig.PrecipitationMode = NeerslagDropdown.SelectedIndex;
+            MasterChartConfig.SunMode = ChangeButtonInteger(MasterChartConfig.SunMode, sunButton);
+            updateChart();
         }
 
         private void SubGroupButton_Click(object sender, EventArgs e) //This one's seperate because it's not an int, but a bool!
@@ -172,11 +207,8 @@ namespace Project3Groep1
         private void button1_Click(object sender, EventArgs e)
         {
             myConnection.dbSELECT("Select count(ID), TemperatuurGem From straatroof, weer Where straatroof.Dag = weer.Dag and straatroof.Maand = weer.Maand and straatroof.Jaar = weer.Jaar and TemperatuurGem is not null Group by TemperatuurGem");
+            //updateChart();
         }
 
-        private void Visualize_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

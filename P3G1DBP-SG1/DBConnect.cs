@@ -107,18 +107,18 @@ namespace Project3Groep1
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 //Read the data and store them in the list
+                int iteration = 0;
                 while (dataReader.Read())
                 {
-                    foreach (var i in list)
+                    foreach (System.Data.Common.DbDataRecord i in dataReader)
                     {
-                        Console.WriteLine(i);
+                        iteration++;
+                        Console.WriteLine("***LINE " + iteration + " ***");
+                        Console.WriteLine(i.ToString());
+                        //dataReader.GetInt16(i.ToString());
                         list[0].Add(dataReader["Count(ID)"] + "");
-                        Console.WriteLine(i[0]);
                         list[1].Add(dataReader["TemperatuurGem"] + "");
                     }
-
-
-
                 }
 
                 //close Data Reader
@@ -128,7 +128,14 @@ namespace Project3Groep1
                 this.CloseConnection();
 
                 //return list to be displayed
-                Console.WriteLine(list);
+                Console.WriteLine("now printing list");
+                foreach (var i in list)
+                {
+                    Console.WriteLine(i);
+                    //Console.WriteLine([i]);
+                    Console.WriteLine(i[0]);
+                    //Console.WriteLine(i[i]);
+                }
                 return list;
             }
             else
