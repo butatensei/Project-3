@@ -51,3 +51,16 @@ C:\Project-3\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.pdb
 C:\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1.Properties.Resources.resources
 C:\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.exe
 C:\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.pdb
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csprojResolveAssemblyReference.cache
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1.Properties.Resources.resources
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1.Visualize.resources
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.GenerateResource.cache
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CoreCompileInputs.cache
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.exe
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.pdb
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\P3G1.sql
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe.config
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.pdb
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\MySql.Data.xml
+D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
