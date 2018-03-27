@@ -171,7 +171,12 @@ namespace Project3Groep1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            updateChart();
+            myConnection.dbSELECT("SELECT COUNT(ID) from " + "straatroof" + " WHERE Dag=" + "1");
+        }
+
+        private void Visualize_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
