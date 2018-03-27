@@ -37,6 +37,7 @@ namespace Project3Groep1
 
         public bool updateChart()
         {
+            RecolorAllButtons(System.Drawing.Color.Yellow);
             barChart.Series[0].Points.Clear(); //clear the chart for starters
             /*
             * TODO: SCALABILITY
@@ -60,9 +61,11 @@ namespace Project3Groep1
                 myTable = "straatroof";
             }
             //Loop through all days
+            RecolorAllButtons(System.Drawing.Color.Green);
             for (int i = 1; i <= 365; i++)
             {
                 string myDay = Convert.ToString(i);
+                RecolorAllButtons(System.Drawing.Color.Red);
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
                 string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
@@ -75,6 +78,7 @@ namespace Project3Groep1
                 barChart.Series[0].Points.AddXY(i, myCountResult);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
+            RecolorAllButtons(System.Drawing.Color.Blue);
             return true;
         }
 
@@ -126,6 +130,41 @@ namespace Project3Groep1
 
             //We pressed a button, so update the chart!
             return passedVariable;
+        }
+
+        /// <summary>
+        /// Returns a list of controls (buttons)
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="list"></param>
+        public void GetAllControl(Control c, List<Control> list)
+        {
+            foreach (Control control in c.Controls)
+            {
+                list.Add(control);
+
+                if (control.GetType() == typeof(Panel))
+                    GetAllControl(control, list);
+            }
+        }
+
+
+    public void RecolorAllButtons(System.Drawing.Color passedColor)
+        {
+            List<Control> AllButtons = new List<Control>();
+
+            GetAllControl(this, AllButtons);
+
+            foreach (Control control in AllButtons)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    string textControl = Convert.ToString(control);
+                    string textColor = Convert.ToString(passedColor);
+                    Console.WriteLine(textControl + textColor);
+                    Console.WriteLine(control.ForeColor = passedColor);
+                }
+            }
         }
 
         private void WeatherButton_Click(object sender, EventArgs e)

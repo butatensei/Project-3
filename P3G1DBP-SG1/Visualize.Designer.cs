@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.MaandButton = new System.Windows.Forms.Button();
             this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WeatherButton = new System.Windows.Forms.Button();
@@ -57,24 +57,24 @@
             // 
             // barChart
             // 
-            chartArea1.AxisX.Maximum = 365D;
-            chartArea1.AxisX.Minimum = 1D;
-            chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
-            chartArea1.Name = "ChartArea1";
-            this.barChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.barChart.Legends.Add(legend1);
+            chartArea2.AxisX.Maximum = 365D;
+            chartArea2.AxisX.Minimum = 1D;
+            chartArea2.AxisX.ScaleBreakStyle.Spacing = 5D;
+            chartArea2.Name = "ChartArea1";
+            this.barChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.barChart.Legends.Add(legend2);
             this.barChart.Location = new System.Drawing.Point(148, 21);
             this.barChart.Name = "barChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Fietsendiefstallen";
-            this.barChart.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Fietsendiefstallen";
+            this.barChart.Series.Add(series2);
             this.barChart.Size = new System.Drawing.Size(614, 322);
             this.barChart.TabIndex = 1;
             this.barChart.Text = "ShowData";
-            title1.Name = "Fietsendiefstallen";
-            this.barChart.Titles.Add(title1);
+            title2.Name = "Fietsendiefstallen";
+            this.barChart.Titles.Add(title2);
             // 
             // WeatherButton
             // 
@@ -144,6 +144,7 @@
             // SubGroupButton
             // 
             this.SubGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.SubGroupButton.ForeColor = System.Drawing.Color.Black;
             this.SubGroupButton.Location = new System.Drawing.Point(712, 364);
             this.SubGroupButton.Name = "SubGroupButton";
             this.SubGroupButton.Size = new System.Drawing.Size(76, 74);
