@@ -53,6 +53,7 @@
             this.MaandButton.Text = "Maand";
             this.MaandButton.UseVisualStyleBackColor = true;
             this.MaandButton.Click += new System.EventHandler(this.maandButton_Click);
+            this.MaandButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // barChart
             // 
@@ -86,7 +87,7 @@
             this.WeatherButton.Text = "☁";
             this.WeatherButton.UseVisualStyleBackColor = true;
             this.WeatherButton.Click += new System.EventHandler(this.WeatherButton_Click);
-            this.MaandButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WeatherButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // RainButton
             // 
