@@ -86,6 +86,7 @@
             this.WeatherButton.Text = "☁";
             this.WeatherButton.UseVisualStyleBackColor = true;
             this.WeatherButton.Click += new System.EventHandler(this.WeatherButton_Click);
+            this.MaandButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // RainButton
             // 
@@ -97,6 +98,7 @@
             this.RainButton.Text = "☔";
             this.RainButton.UseVisualStyleBackColor = true;
             this.RainButton.Click += new System.EventHandler(this.RainButton_Click);
+            this.RainButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // FrostButton
             // 
@@ -108,6 +110,7 @@
             this.FrostButton.Text = "❄";
             this.FrostButton.UseVisualStyleBackColor = true;
             this.FrostButton.Click += new System.EventHandler(this.FrostButton_Click);
+            this.FrostButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // WeekButton
             // 
@@ -117,6 +120,7 @@
             this.WeekButton.TabIndex = 5;
             this.WeekButton.Text = "Week";
             this.WeekButton.UseVisualStyleBackColor = true;
+            this.WeekButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // SubGroupButton
             // 
@@ -129,6 +133,7 @@
             this.SubGroupButton.Text = "🚲";
             this.SubGroupButton.UseVisualStyleBackColor = true;
             this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
+            this.SubGroupButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // button1
             // 
@@ -152,6 +157,7 @@
             this.sunButton.Text = "☀";
             this.sunButton.UseVisualStyleBackColor = true;
             this.sunButton.Click += new System.EventHandler(this.sunButton_Click);
+            this.sunButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // Visualize
             // 
