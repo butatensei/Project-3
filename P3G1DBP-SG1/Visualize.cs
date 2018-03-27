@@ -183,11 +183,10 @@ namespace Project3Groep1
             updateChart();
         }
 
-        
-        private void NeerslagDropdown_SelectedIndexChanged(object sender, EventArgs e)
+        private void sunButton_Click(object sender, EventArgs e)
         {
-            //This dropdown is now obsolete due to the IntegerButtonPressed() function.
-            MasterChartConfig.PrecipitationMode = NeerslagDropdown.SelectedIndex;
+            MasterChartConfig.SunMode = ChangeButtonInteger(MasterChartConfig.SunMode, sunButton);
+            updateChart();
         }
 
         private void SubGroupButton_Click(object sender, EventArgs e) //This one's seperate because it's not an int, but a bool!
@@ -207,9 +206,8 @@ namespace Project3Groep1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RecolorAllButtons(System.Drawing.Color.Green);
             updateChart();
-            RecolorAllButtons(System.Drawing.Color.Black);
         }
+
     }
 }
