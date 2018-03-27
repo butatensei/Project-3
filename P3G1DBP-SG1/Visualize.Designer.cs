@@ -40,6 +40,8 @@
             this.WeekButton = new System.Windows.Forms.Button();
             this.NeerslagDropdown = new System.Windows.Forms.ComboBox();
             this.TestDropdownLaber = new System.Windows.Forms.Label();
+            this.SubGroupButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +57,7 @@
             // 
             // barChart
             // 
-            chartArea1.AxisX.Maximum = 12D;
+            chartArea1.AxisX.Maximum = 365D;
             chartArea1.AxisX.Minimum = 1D;
             chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
             chartArea1.Name = "ChartArea1";
@@ -77,6 +79,7 @@
             // WeatherButton
             // 
             this.WeatherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.WeatherButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.WeatherButton.Location = new System.Drawing.Point(12, 21);
             this.WeatherButton.Name = "WeatherButton";
             this.WeatherButton.Size = new System.Drawing.Size(76, 74);
@@ -94,6 +97,7 @@
             this.RainButton.TabIndex = 3;
             this.RainButton.Text = "☔";
             this.RainButton.UseVisualStyleBackColor = true;
+            this.RainButton.Click += new System.EventHandler(this.RainButton_Click);
             // 
             // FrostButton
             // 
@@ -104,6 +108,7 @@
             this.FrostButton.TabIndex = 4;
             this.FrostButton.Text = "❄";
             this.FrostButton.UseVisualStyleBackColor = true;
+            this.FrostButton.Click += new System.EventHandler(this.FrostButton_Click);
             // 
             // WeekButton
             // 
@@ -136,11 +141,35 @@
             this.TestDropdownLaber.TabIndex = 7;
             this.TestDropdownLaber.Text = "neerslag mode";
             // 
+            // SubGroupButton
+            // 
+            this.SubGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.SubGroupButton.Location = new System.Drawing.Point(712, 364);
+            this.SubGroupButton.Name = "SubGroupButton";
+            this.SubGroupButton.Size = new System.Drawing.Size(76, 74);
+            this.SubGroupButton.TabIndex = 8;
+            this.SubGroupButton.Text = "🚲";
+            this.SubGroupButton.UseVisualStyleBackColor = true;
+            this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
+            this.button1.Location = new System.Drawing.Point(369, 351);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(264, 74);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "update";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SubGroupButton);
             this.Controls.Add(this.TestDropdownLaber);
             this.Controls.Add(this.NeerslagDropdown);
             this.Controls.Add(this.WeekButton);
@@ -167,6 +196,8 @@
         private System.Windows.Forms.Button WeekButton;
         private System.Windows.Forms.ComboBox NeerslagDropdown;
         private System.Windows.Forms.Label TestDropdownLaber;
+        private System.Windows.Forms.Button SubGroupButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
