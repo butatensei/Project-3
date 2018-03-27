@@ -89,14 +89,14 @@ namespace Project3Groep1
         }
 
         public List<string>[] dbSELECT(string passedQuery)
-        { 
+        {
             string query = passedQuery;
             Console.WriteLine("start");
             //Create a list to store the result
             List<string>[] list = new List<string>[2];
             list[0] = new List<string>();
             list[1] = new List<string>();
-            
+
 
             //Open connection
             if (this.OpenConnection())
@@ -118,7 +118,7 @@ namespace Project3Groep1
                     }
 
 
-                    
+
                 }
 
                 //close Data Reader
