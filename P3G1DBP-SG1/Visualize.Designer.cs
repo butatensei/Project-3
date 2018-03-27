@@ -47,9 +47,10 @@
             // 
             // MaandButton
             // 
-            this.MaandButton.Location = new System.Drawing.Point(148, 349);
+            this.MaandButton.Location = new System.Drawing.Point(197, 430);
+            this.MaandButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaandButton.Name = "MaandButton";
-            this.MaandButton.Size = new System.Drawing.Size(75, 23);
+            this.MaandButton.Size = new System.Drawing.Size(100, 28);
             this.MaandButton.TabIndex = 0;
             this.MaandButton.Text = "Maand";
             this.MaandButton.UseVisualStyleBackColor = true;
@@ -64,13 +65,14 @@
             this.barChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.barChart.Legends.Add(legend1);
-            this.barChart.Location = new System.Drawing.Point(148, 21);
+            this.barChart.Location = new System.Drawing.Point(197, 26);
+            this.barChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.barChart.Name = "barChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Fietsendiefstallen";
             this.barChart.Series.Add(series1);
-            this.barChart.Size = new System.Drawing.Size(614, 322);
+            this.barChart.Size = new System.Drawing.Size(819, 396);
             this.barChart.TabIndex = 1;
             this.barChart.Text = "ShowData";
             title1.Name = "Fietsendiefstallen";
@@ -80,9 +82,10 @@
             // 
             this.WeatherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.WeatherButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.WeatherButton.Location = new System.Drawing.Point(12, 21);
+            this.WeatherButton.Location = new System.Drawing.Point(16, 26);
+            this.WeatherButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WeatherButton.Name = "WeatherButton";
-            this.WeatherButton.Size = new System.Drawing.Size(76, 74);
+            this.WeatherButton.Size = new System.Drawing.Size(101, 91);
             this.WeatherButton.TabIndex = 2;
             this.WeatherButton.Text = "☁";
             this.WeatherButton.UseVisualStyleBackColor = true;
@@ -91,9 +94,10 @@
             // RainButton
             // 
             this.RainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
-            this.RainButton.Location = new System.Drawing.Point(12, 101);
+            this.RainButton.Location = new System.Drawing.Point(16, 124);
+            this.RainButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RainButton.Name = "RainButton";
-            this.RainButton.Size = new System.Drawing.Size(76, 74);
+            this.RainButton.Size = new System.Drawing.Size(101, 91);
             this.RainButton.TabIndex = 3;
             this.RainButton.Text = "☔";
             this.RainButton.UseVisualStyleBackColor = true;
@@ -102,9 +106,10 @@
             // FrostButton
             // 
             this.FrostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
-            this.FrostButton.Location = new System.Drawing.Point(12, 181);
+            this.FrostButton.Location = new System.Drawing.Point(16, 223);
+            this.FrostButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FrostButton.Name = "FrostButton";
-            this.FrostButton.Size = new System.Drawing.Size(76, 74);
+            this.FrostButton.Size = new System.Drawing.Size(101, 91);
             this.FrostButton.TabIndex = 4;
             this.FrostButton.Text = "❄";
             this.FrostButton.UseVisualStyleBackColor = true;
@@ -112,9 +117,10 @@
             // 
             // WeekButton
             // 
-            this.WeekButton.Location = new System.Drawing.Point(229, 349);
+            this.WeekButton.Location = new System.Drawing.Point(305, 430);
+            this.WeekButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WeekButton.Name = "WeekButton";
-            this.WeekButton.Size = new System.Drawing.Size(75, 23);
+            this.WeekButton.Size = new System.Drawing.Size(100, 28);
             this.WeekButton.TabIndex = 5;
             this.WeekButton.Text = "Week";
             this.WeekButton.UseVisualStyleBackColor = true;
@@ -126,27 +132,30 @@
             "0",
             "1",
             "2"});
-            this.NeerslagDropdown.Location = new System.Drawing.Point(12, 351);
+            this.NeerslagDropdown.Location = new System.Drawing.Point(16, 432);
+            this.NeerslagDropdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.NeerslagDropdown.Name = "NeerslagDropdown";
-            this.NeerslagDropdown.Size = new System.Drawing.Size(121, 21);
+            this.NeerslagDropdown.Size = new System.Drawing.Size(160, 24);
             this.NeerslagDropdown.TabIndex = 6;
             this.NeerslagDropdown.SelectedIndexChanged += new System.EventHandler(this.NeerslagDropdown_SelectedIndexChanged);
             // 
             // TestDropdownLaber
             // 
             this.TestDropdownLaber.AutoSize = true;
-            this.TestDropdownLaber.Location = new System.Drawing.Point(13, 332);
+            this.TestDropdownLaber.Location = new System.Drawing.Point(17, 409);
+            this.TestDropdownLaber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TestDropdownLaber.Name = "TestDropdownLaber";
-            this.TestDropdownLaber.Size = new System.Drawing.Size(76, 13);
+            this.TestDropdownLaber.Size = new System.Drawing.Size(102, 17);
             this.TestDropdownLaber.TabIndex = 7;
             this.TestDropdownLaber.Text = "neerslag mode";
             // 
             // SubGroupButton
             // 
             this.SubGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
-            this.SubGroupButton.Location = new System.Drawing.Point(712, 364);
+            this.SubGroupButton.Location = new System.Drawing.Point(949, 448);
+            this.SubGroupButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.SubGroupButton.Name = "SubGroupButton";
-            this.SubGroupButton.Size = new System.Drawing.Size(76, 74);
+            this.SubGroupButton.Size = new System.Drawing.Size(101, 91);
             this.SubGroupButton.TabIndex = 8;
             this.SubGroupButton.Text = "🚲";
             this.SubGroupButton.UseVisualStyleBackColor = true;
@@ -155,9 +164,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
-            this.button1.Location = new System.Drawing.Point(369, 351);
+            this.button1.Location = new System.Drawing.Point(492, 432);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 74);
+            this.button1.Size = new System.Drawing.Size(352, 91);
             this.button1.TabIndex = 9;
             this.button1.Text = "update";
             this.button1.UseVisualStyleBackColor = true;
@@ -165,9 +175,9 @@
             // 
             // Visualize
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SubGroupButton);
             this.Controls.Add(this.TestDropdownLaber);
@@ -178,8 +188,10 @@
             this.Controls.Add(this.WeatherButton);
             this.Controls.Add(this.barChart);
             this.Controls.Add(this.MaandButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Visualize";
             this.Text = "Fietsenfiefstallen & het Weer";
+            this.Load += new System.EventHandler(this.Visualize_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
