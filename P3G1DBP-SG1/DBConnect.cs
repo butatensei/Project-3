@@ -88,12 +88,62 @@ namespace Project3Groep1
             }
         }
 
+        public List<string>[] dbSELECT(string passedQuery)
+        {
+            string query = passedQuery;
+            Console.WriteLine("start");
+            //Create a list to store the result
+            List<string>[] list = new List<string>[2];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
+
+
+            //Open connection
+            if (this.OpenConnection())
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    foreach (var i in list)
+                    {
+                        Console.WriteLine(i);
+                        list[0].Add(dataReader["Count(ID)"] + "");
+                        Console.WriteLine(i[0]);
+                        list[1].Add(dataReader["TemperatuurGem"] + "");
+                    }
+
+
+
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                Console.WriteLine(list);
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+
+        }
+
         //Performs a query to get a whole bunch of strings. Maybe.
         //Honestly, I just don't know anymore.
-        /*public List<string>[] GetStringList(string, passedQuery)
+        /*public List<int>[] GetStringList(int, passedQuery)
         {
             //Create a list to store the result
-            List<string>[] list = new List<string>[3];
+            List<int>[] list = new List<int>[3];
             list[0] = new List<string>();
 
             //Open connection
@@ -157,5 +207,6 @@ namespace Project3Groep1
                 return Count;
             }
         }
+
     }
 }
