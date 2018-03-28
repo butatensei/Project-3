@@ -206,7 +206,9 @@ namespace Project3Groep1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            updateChart();
+            //Console.WriteLine("hello");
+            myConnection.dbSELECT("Select count(ID), TemperatuurGem From fietsendiefstal, weer Where fietsendiefstal.Dag = weer.Dag and fietsendiefstal.Maand = weer.Maand and fietsendiefstal.Jaar = weer.Jaar and TemperatuurGem is not null Group by TemperatuurGem;");
+            //updateChart();
         }
 
     }
