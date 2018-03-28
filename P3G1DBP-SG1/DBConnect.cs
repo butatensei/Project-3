@@ -88,54 +88,64 @@ namespace Project3Groep1
             }
         }
 
-        public List<string>[] dbSELECT(string passedQuery)
+
+        //Current attempt at creating the list
+
+            /*
+             * Only works when update button is pressed (?)
+             * Graph seems to stop working after update has been pressed, console does keep working tho.
+             */
+
+        //Introduced a small class for storing data
+        public class CountTemp
+        {
+            public int Count { get; set; }
+            public int TempGem { get; set; }
+        }
+
+
+        public List<CountTemp> dbSELECT(string passedQuery)
         {
             string query = passedQuery;
-            Console.WriteLine("start");
+
             //Create a list to store the result
-            List<string>[] list = new List<string>[2];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
+            var list = new List<CountTemp>();
 
-
-            //Open connection
+            //OPen connection
             if (this.OpenConnection())
             {
-                //Create Command
+                //Create command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
+                //Create datareader and execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 //Read the data and store them in the list
-                int iteration = 0;
                 while (dataReader.Read())
                 {
-                    foreach (System.Data.Common.DbDataRecord i in dataReader)
+                    list.Add(new CountTemp
                     {
-                        iteration++;
-                        Console.WriteLine("***LINE " + iteration + " ***");
-                        Console.WriteLine(i.ToString());
-                        //dataReader.GetInt16(i.ToString());
-                        list[0].Add(dataReader["Count(ID)"] + "");
-                        list[1].Add(dataReader["TemperatuurGem"] + "");
+                        Count = Convert.ToInt32(dataReader["Count(ID)"]),
+                        TempGem = Convert.ToInt32(dataReader["TemperatuurGem"])
+
+                    });
+
+                    foreach (var temp in list)
+                    {
+                        Console.WriteLine(string.Format("{0} {1}",
+                            temp.Count,
+                            temp.TempGem));
                     }
                 }
 
-                //close Data Reader
+                Console.ReadLine();
+
+                //close datareader
                 dataReader.Close();
 
-                //close Connection
+                //close connection
                 this.CloseConnection();
 
                 //return list to be displayed
-                Console.WriteLine("now printing list");
-                foreach (var i in list)
-                {
-                    Console.WriteLine(i);
-                    //Console.WriteLine([i]);
-                    Console.WriteLine(i[0]);
-                    //Console.WriteLine(i[i]);
-                }
                 return list;
             }
             else
@@ -144,6 +154,126 @@ namespace Project3Groep1
             }
 
         }
+
+        /*public void Display(List<CountTemp> list)
+        {
+
+
+        }*/
+
+
+        /* Some messing around by Matthijs
+        public List<string>[] dbSELECT(string passedQuery)
+        {
+            List<string>[] list = new List<string>[2];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
+            string query = passedQuery;
+            Console.WriteLine("start");
+
+            //string conString = "Data Source=localhost;Initial Catalog=LoginScreen;Integrated Security=True";
+            //MySqlConnection con = new MySqlConnection(conectionString);
+
+            MySqlCommand com = new MySqlCommand(query, connection);
+            com.CommandType = System.Data.CommandType.StoredProcedure;
+            //MySqlDataReader datareader = com.ExecuteReader();
+            try
+            {
+                connection.Open();
+                using (MySqlDataReader datareader = com.ExecuteReader())
+                {
+                    while (datareader.Read())
+                    {
+                        Console.WriteLine("hello");
+                        list[0].Add(datareader["Count(ID)"] + "");
+                        list[1].Add(datareader["TemperatuurGem"] + "");
+                    }
+                    return list;
+                }
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+     
+                try
+                {
+                    con.Open();
+
+                    using (MySqlDataReader read = MySqlCommand.ExecuteReader())
+                    {
+                        while (cursor.Read())
+                        {
+                            //needs to be changed to whatever we want in the list
+                            CustID.Text = (read["Customer_ID"].ToString());
+                            CustName.Text = (read["Customer_Name"].ToString());
+                        }
+                    }
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            con.Close();
+        }*/
+
+
+
+        /* Daniels setup + Ians (?) progress
+        //Create a list to store the result
+        List<string>[] list = new List<string>[2];
+        list[0] = new List<string>();
+        list[1] = new List<string>();
+
+
+        //Open connection
+        if (this.OpenConnection())
+        {
+            //Create Command
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            //Create a data reader and Execute the command
+            MySqlDataReader dataReader = cmd.ExecuteReader();
+
+            //Read the data and store them in the list
+            int iteration = 0;
+            while (dataReader.Read())
+            {
+                foreach (System.Data.Common.DbDataRecord i in dataReader)
+                {
+                    iteration++;
+                    Console.WriteLine("***LINE " + iteration + " ***");
+                    Console.WriteLine(i.ToString());
+                    //dataReader.GetInt16(i.ToString());
+                    list[0].Add(dataReader["Count(ID)"] + "");
+                    list[1].Add(dataReader["TemperatuurGem"] + "");
+                }
+            }
+
+            //close Data Reader
+            dataReader.Close();
+
+            //close Connection
+            this.CloseConnection();
+
+            //return list to be displayed
+            Console.WriteLine("now printing list");
+            foreach (var i in list)
+            {
+                Console.WriteLine(i);
+                //Console.WriteLine([i]);
+                Console.WriteLine(i[0]);
+                //Console.WriteLine(i[i]);
+            }
+            return list;
+        }
+        else
+        {
+            return list;
+        }
+
+    } */
 
         //Performs a query to get a whole bunch of strings. Maybe.
         //Honestly, I just don't know anymore.
@@ -190,30 +320,31 @@ namespace Project3Groep1
         /// <param name="passedQuery">SELECT Count() query</param>
         /// <returns>int</returns>
         public int Count(string passedQuery)
-        {
-            //string query = "SELECT Count(*) FROM weer";
-            int Count = -1;
-
-            //Open Connection
-            if (this.OpenConnection() == true)
             {
-                //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(passedQuery, connection);
+                //string query = "SELECT Count(*) FROM weer";
+                int Count = -1;
 
-                //ExecuteScalar will return one value
-                //Count = int.Parse(cmd.ExecuteScalar() + "");
-                var scholar = cmd.ExecuteScalar();
-                Count = Convert.ToInt32(scholar);
-                //close Connection
-                this.CloseConnection();
+                //Open Connection
+                if (this.OpenConnection() == true)
+                {
+                    //Create Mysql Command
+                    MySqlCommand cmd = new MySqlCommand(passedQuery, connection);
 
-                return Count;
+                    //ExecuteScalar will return one value
+                    //Count = int.Parse(cmd.ExecuteScalar() + "");
+                    var scholar = cmd.ExecuteScalar();
+                    Count = Convert.ToInt32(scholar);
+                    //close Connection
+                    this.CloseConnection();
+
+                    return Count;
+                }
+                else
+                {
+                    return Count;
+                }
             }
-            else
-            {
-                return Count;
-            }
+
         }
-
     }
-}
+
