@@ -25,6 +25,7 @@ namespace Project3Groep1
             myConnection.updateDatabase();
         }
 
+
         private void maandButton_Click(object sender, EventArgs e)
         {
             //MaandButton.Text = "MAAND";
@@ -47,7 +48,6 @@ namespace Project3Groep1
             */
             //set up variables for use in our looped checks...
             int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
-            int mySunMode = MasterChartConfig.SunMode;
             bool mySubgroupData = MasterChartConfig.SubGroupData;
             string myTable;
 
@@ -81,7 +81,13 @@ namespace Project3Groep1
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
                 //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                barChart.Series[0].Points.AddXY(mylistEntry.TempGem / 10, mylistEntry.Count);
+                int TempGemround = mylistEntry.TempGem;
+                int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
+                TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
+
+                //this.groepeerbox.value
+
+                barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
             FlipEnabledAllButtons();
@@ -203,12 +209,10 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
-                barChart.Series[0].Name = "Straatroof";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
-                barChart.Series[0].Name = "Fietsendiefstal";
             }
 
             updateChart(); //We pressed a button, so update the chart!
@@ -218,6 +222,11 @@ namespace Project3Groep1
         {
             //Console.WriteLine("hello");
             updateChart();
+        }
+
+        private void toolTip2_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }
