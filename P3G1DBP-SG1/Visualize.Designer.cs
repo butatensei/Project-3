@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.MaandButton = new System.Windows.Forms.Button();
             this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WeatherButton = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             // 
             // MaandButton
             // 
+            this.MaandButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaandButton.Location = new System.Drawing.Point(148, 349);
             this.MaandButton.Name = "MaandButton";
             this.MaandButton.Size = new System.Drawing.Size(75, 23);
@@ -53,31 +54,31 @@
             this.MaandButton.Text = "Maand";
             this.MaandButton.UseVisualStyleBackColor = true;
             this.MaandButton.Click += new System.EventHandler(this.maandButton_Click);
-            this.MaandButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // barChart
             // 
-            chartArea2.AxisX.Maximum = 365D;
-            chartArea2.AxisX.Minimum = 1D;
-            chartArea2.AxisX.ScaleBreakStyle.Spacing = 5D;
-            chartArea2.Name = "ChartArea1";
-            this.barChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.barChart.Legends.Add(legend2);
+            chartArea1.AxisX.Maximum = 26D;
+            chartArea1.AxisX.Minimum = -10D;
+            chartArea1.AxisX.ScaleBreakStyle.Spacing = 5D;
+            chartArea1.Name = "ChartArea1";
+            this.barChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.barChart.Legends.Add(legend1);
             this.barChart.Location = new System.Drawing.Point(148, 21);
             this.barChart.Name = "barChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Fietsendiefstallen";
-            this.barChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Fietsendiefstallen";
+            this.barChart.Series.Add(series1);
             this.barChart.Size = new System.Drawing.Size(614, 322);
             this.barChart.TabIndex = 1;
             this.barChart.Text = "ShowData";
-            title2.Name = "Fietsendiefstallen";
-            this.barChart.Titles.Add(title2);
+            title1.Name = "Fietsendiefstallen";
+            this.barChart.Titles.Add(title1);
             // 
             // WeatherButton
             // 
+            this.WeatherButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WeatherButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.WeatherButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.WeatherButton.Location = new System.Drawing.Point(12, 231);
@@ -87,10 +88,10 @@
             this.WeatherButton.Text = "☁";
             this.WeatherButton.UseVisualStyleBackColor = true;
             this.WeatherButton.Click += new System.EventHandler(this.WeatherButton_Click);
-            this.WeatherButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // RainButton
             // 
+            this.RainButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
             this.RainButton.Location = new System.Drawing.Point(80, 314);
             this.RainButton.Name = "RainButton";
@@ -99,10 +100,10 @@
             this.RainButton.Text = "☔";
             this.RainButton.UseVisualStyleBackColor = true;
             this.RainButton.Click += new System.EventHandler(this.RainButton_Click);
-            this.RainButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // FrostButton
             // 
+            this.FrostButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FrostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F);
             this.FrostButton.Location = new System.Drawing.Point(12, 314);
             this.FrostButton.Name = "FrostButton";
@@ -111,20 +112,20 @@
             this.FrostButton.Text = "❄";
             this.FrostButton.UseVisualStyleBackColor = true;
             this.FrostButton.Click += new System.EventHandler(this.FrostButton_Click);
-            this.FrostButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // WeekButton
             // 
+            this.WeekButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.WeekButton.Location = new System.Drawing.Point(229, 349);
             this.WeekButton.Name = "WeekButton";
             this.WeekButton.Size = new System.Drawing.Size(75, 23);
             this.WeekButton.TabIndex = 5;
             this.WeekButton.Text = "Week";
             this.WeekButton.UseVisualStyleBackColor = true;
-            this.WeekButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // SubGroupButton
             // 
+            this.SubGroupButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SubGroupButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.SubGroupButton.ForeColor = System.Drawing.Color.Black;
             this.SubGroupButton.Location = new System.Drawing.Point(712, 364);
@@ -134,7 +135,6 @@
             this.SubGroupButton.Text = "🚲";
             this.SubGroupButton.UseVisualStyleBackColor = true;
             this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
-            this.SubGroupButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // button1
             // 
@@ -149,6 +149,7 @@
             // 
             // sunButton
             // 
+            this.sunButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.sunButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
             this.sunButton.ForeColor = System.Drawing.SystemColors.ControlText;
             this.sunButton.Location = new System.Drawing.Point(12, 148);
@@ -158,7 +159,6 @@
             this.sunButton.Text = "☀";
             this.sunButton.UseVisualStyleBackColor = true;
             this.sunButton.Click += new System.EventHandler(this.sunButton_Click);
-            this.sunButton.Cursor = System.Windows.Forms.Cursors.Hand;
             // 
             // Visualize
             // 
