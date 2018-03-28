@@ -137,8 +137,6 @@ namespace Project3Groep1
                     }
                 }
 
-                Console.ReadLine();
-
                 //close datareader
                 dataReader.Close();
 
