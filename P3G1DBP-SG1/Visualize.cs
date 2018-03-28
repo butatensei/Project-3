@@ -202,10 +202,12 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
+                barChart.Series[0].Name = "Straatroof";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
+                barChart.Series[0].Name = "Fietsendiefstal";
             }
 
             updateChart(); //We pressed a button, so update the chart!
