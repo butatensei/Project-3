@@ -96,7 +96,9 @@ namespace Project3Groep1
              * Graph seems to stop working after update has been pressed, console does keep working tho.
              */
 
-        //Introduced a small class for storing data
+        /// <summary>
+        /// Small class that stores variables that go into the query list
+        /// </summary>
         public class CountTemp
         {
             public int Count { get; set; }
@@ -104,7 +106,7 @@ namespace Project3Groep1
         }
 
 
-        public List<CountTemp> dbSELECT(string passedQuery)
+        public List<CountTemp> DBselect(string passedQuery)
         {
             string query = passedQuery;
 
@@ -128,13 +130,13 @@ namespace Project3Groep1
                         TempGem = Convert.ToInt32(dataReader["TemperatuurGem"])
 
                     });
-
+                    /*
                     foreach (var temp in list)
                     {
                         Console.WriteLine(string.Format("{0} {1}",
                             temp.Count,
                             temp.TempGem));
-                    }
+                    }*/// debug no longer needed 😎
                 }
 
                 //close datareader

@@ -49,8 +49,6 @@ namespace Project3Groep1
             int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
             bool mySubgroupData = MasterChartConfig.SubGroupData;
             string myTable;
-            int myTotalCount = 0;
-            string space = " ";
 
             if (mySubgroupData)
             {
@@ -60,20 +58,29 @@ namespace Project3Groep1
             {
                 myTable = "straatroof";
             }
-            //Loop through all days
-            for (int i = 1; i <= 365; i++)
+            
+            //Loop through all the entries
+
+            /* 
+             * query that uses the table assigned above to select where the data will come from
+             * bit hard to read due to all the +es but it beats having one massive line
+             */
+            string myQuery =
+                    "Select count(ID), TemperatuurGem " +
+                    "From "+myTable+", weer " +
+                    "Where " + myTable + ".Dag = weer.Dag and " +
+                    "" + myTable + ".Maand = weer.Maand and " +
+                    "" + myTable + ".Jaar = weer.Jaar and TemperatuurGem is not null " +
+                    "Group by TemperatuurGem;";
+            Console.WriteLine(myQuery);
+            List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
+            Console.WriteLine(myCountResult);
+            foreach (var mylistEntry in myCountResult)
             {
-                string myDay = Convert.ToString(i);
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
-                string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                Console.WriteLine(myCountQuery);
-                Console.WriteLine(i);
-                int myCountResult = myConnection.Count(myCountQuery);
-                Console.WriteLine(myCountResult);
-                int myTemp = 5; //temp magic number
-                myTotalCount = myTotalCount + myCountResult;
-                barChart.Series[0].Points.AddXY(i, myCountResult);
+                //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
+                barChart.Series[0].Points.AddXY(mylistEntry.TempGem / 10, mylistEntry.Count);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
             FlipEnabledAllButtons();
@@ -207,8 +214,7 @@ namespace Project3Groep1
         private void button1_Click(object sender, EventArgs e)
         {
             //Console.WriteLine("hello");
-            myConnection.dbSELECT("Select count(ID), TemperatuurGem From fietsendiefstal, weer Where fietsendiefstal.Dag = weer.Dag and fietsendiefstal.Maand = weer.Maand and fietsendiefstal.Jaar = weer.Jaar and TemperatuurGem is not null Group by TemperatuurGem;");
-            //updateChart();
+            updateChart();
         }
 
     }
