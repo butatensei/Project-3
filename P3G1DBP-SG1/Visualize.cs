@@ -25,6 +25,7 @@ namespace Project3Groep1
             myConnection.updateDatabase();
         }
 
+
         private void maandButton_Click(object sender, EventArgs e)
         {
             //MaandButton.Text = "MAAND";
@@ -80,10 +81,13 @@ namespace Project3Groep1
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
                 //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                int TempGemfive = mylistEntry.TempGem;
-                TempGemfive = Convert.ToInt32(Math.Round(TempGemfive / 50.0) * 50);
+                int TempGemround = mylistEntry.TempGem;
+                int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
+                TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
 
-                barChart.Series[0].Points.AddXY(TempGemfive / 10, mylistEntry.Count);
+                //this.groepeerbox.value
+
+                barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
             FlipEnabledAllButtons();
@@ -220,5 +224,9 @@ namespace Project3Groep1
             updateChart();
         }
 
+        private void toolTip2_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }
