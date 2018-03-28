@@ -47,6 +47,7 @@ namespace Project3Groep1
             */
             //set up variables for use in our looped checks...
             int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
+            int mySunMode = MasterChartConfig.SunMode;
             bool mySubgroupData = MasterChartConfig.SubGroupData;
             string myTable;
 
@@ -218,6 +219,5 @@ namespace Project3Groep1
             //Console.WriteLine("hello");
             updateChart();
         }
-
     }
 }
