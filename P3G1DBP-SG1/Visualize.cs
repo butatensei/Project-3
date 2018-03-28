@@ -80,7 +80,10 @@ namespace Project3Groep1
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
                 //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                barChart.Series[0].Points.AddXY(mylistEntry.TempGem / 10, mylistEntry.Count);
+                int TempGemfive = mylistEntry.TempGem;
+                TempGemfive = Convert.ToInt32(Math.Round(TempGemfive / 50.0) * 50);
+
+                barChart.Series[0].Points.AddXY(TempGemfive / 10, mylistEntry.Count);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
             FlipEnabledAllButtons();
