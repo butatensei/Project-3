@@ -98,6 +98,66 @@ namespace Project3Groep1
             Console.WriteLine(myQuery);
             List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
             Console.WriteLine(myCountResult);
+
+
+            /*
+            List<Tuple<string, double>> items = new List<Tuple<string, double>>()
+            {
+                new Tuple<string,double>("q", .5),
+                new Tuple<string,double>("d", 1.5),
+                new Tuple<string,double>("j", .7),
+                new Tuple<string,double>("h", .8),
+                new Tuple<string,double>("q", .5)
+
+
+            };
+
+            
+            var sumvalue = items.Sum(c => c.Item2); // Calculates sum of all values
+            
+            var betweensum = items.SkipWhile(x => x.Item1 == "q") // Skip until matching item1            
+                .TakeWhile(x => x.Item1 != "q") // take until matching item1
+                .Sum(x => x.Item2); // Sum
+
+            int gid = 0;
+            items.Select(c => new { Tuple = c, gid = c.Item1 == "q" ? ++gid : gid })
+                .GroupBy(x => x.gid)
+                .Where(x => x.Key % 2 == 1)
+                .SelectMany(x => x.Skip(1))
+                .Sum(x => x.Tuple.Item2);
+
+            foreach (var item in items)
+            {
+                Console.WriteLine(items);
+            }
+
+            */
+
+            List<Tuple<string, double>> roundList = new List<Tuple<string, double>>()
+            {
+                new Tuple<string,double>("r", -10),
+                new Tuple<string,double>("e", -5),
+                new Tuple<string,double>("w", 0),
+                new Tuple<string,double>("q", 5),
+                new Tuple<string,double>("w", 10),
+                new Tuple<string,double>("e", 15),
+                new Tuple<string,double>("r", 20),
+                new Tuple<string,double>("q", 25),
+                new Tuple<string,double>("w", 30)
+            };
+
+
+            var sumvalue = roundList.Sum(c => c.Item2); // Calculates sum of all values
+
+            var betweensum = roundList.SkipWhile(x => x.Item1 == "q") // Skip until matching item1            
+                .TakeWhile(x => x.Item1 != "q") // take until matching item1
+                .Sum(x => x.Item2); // Sum
+
+            foreach (var data in roundList)
+            {
+                Console.WriteLine(data);
+            }
+
             foreach (var mylistEntry in myCountResult)
             {
                 //write query that gets weather data and checks it with primary data
