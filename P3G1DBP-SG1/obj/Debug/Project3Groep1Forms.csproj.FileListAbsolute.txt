@@ -64,3 +64,16 @@ D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\Project
 D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.pdb
 D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\bin\Debug\MySql.Data.xml
 D:\Users\tempe\Documents\GitHub\Project 3 smartgit\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\P3G1.sql
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe.config
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.exe
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\Project3Groep1Forms.pdb
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\bin\Debug\MySql.Data.xml
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1.Properties.Resources.resources
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1.Visualize.resources
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.GenerateResource.cache
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.csproj.CopyComplete
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.exe
+C:\Users\Daniel\Documents\GitHub\Project-3\P3G1DBP-SG1\obj\Debug\Project3Groep1Forms.pdb
