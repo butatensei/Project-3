@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
@@ -42,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.sunButton = new System.Windows.Forms.Button();
             this.GroepeerBox = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +87,7 @@
             this.WeatherButton.Size = new System.Drawing.Size(130, 77);
             this.WeatherButton.TabIndex = 2;
             this.WeatherButton.Text = "☁";
+            this.toolTip.SetToolTip(this.WeatherButton, "Zet de totale neerslag aan of uit");
             this.WeatherButton.UseVisualStyleBackColor = true;
             this.WeatherButton.Click += new System.EventHandler(this.WeatherButton_Click);
             // 
@@ -97,6 +100,7 @@
             this.RainButton.Size = new System.Drawing.Size(62, 58);
             this.RainButton.TabIndex = 3;
             this.RainButton.Text = "☔";
+            this.toolTip.SetToolTip(this.RainButton, "Zet regen aan of uit");
             this.RainButton.UseVisualStyleBackColor = true;
             this.RainButton.Click += new System.EventHandler(this.RainButton_Click);
             // 
@@ -109,6 +113,7 @@
             this.FrostButton.Size = new System.Drawing.Size(62, 58);
             this.FrostButton.TabIndex = 4;
             this.FrostButton.Text = "❄";
+            this.toolTip.SetToolTip(this.FrostButton, "Zet sneeuw aan of uit");
             this.FrostButton.UseVisualStyleBackColor = true;
             this.FrostButton.Click += new System.EventHandler(this.FrostButton_Click);
             // 
@@ -132,6 +137,7 @@
             this.SubGroupButton.Size = new System.Drawing.Size(76, 74);
             this.SubGroupButton.TabIndex = 8;
             this.SubGroupButton.Text = "🚲";
+            this.toolTip.SetToolTip(this.SubGroupButton, "Kies tussen fietsendiefstal en straatroof\r\n");
             this.SubGroupButton.UseVisualStyleBackColor = true;
             this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
             // 
@@ -143,6 +149,7 @@
             this.button1.Size = new System.Drawing.Size(264, 74);
             this.button1.TabIndex = 9;
             this.button1.Text = "update";
+            this.toolTip.SetToolTip(this.button1, "Update de chart");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -207,6 +214,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button sunButton;
         private System.Windows.Forms.ComboBox GroepeerBox;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

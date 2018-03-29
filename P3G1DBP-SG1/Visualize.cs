@@ -47,17 +47,38 @@ namespace Project3Groep1
             * AND BUILD OUR QUERY OUT OF THAT!
             */
             //set up variables for use in our looped checks...
-            int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
-            bool mySubgroupData = MasterChartConfig.SubGroupData;
-            string myTable;
+            int PrecipMode = MasterChartConfig.PrecipitationMode;
+            bool subGroupBool = MasterChartConfig.SubGroupData;
 
-            if (mySubgroupData)
+            string tableUsed;
+            string precip;
+            string timeFrame;
+
+            if (subGroupBool)
             {
-                myTable = "fietsendiefstal";
+                tableUsed = "fietsendiefstal";
             }
             else
             {
-                myTable = "straatroof";
+                tableUsed = "straatroof";
+            }
+
+            if (MasterChartConfig.PrecipitationMode == 0)
+            {
+                precip = "";
+            }
+            else
+            {
+                precip = "and (Regen = 1 or Sneeuw = 1) ";
+            }
+
+            if (MasterChartConfig.TimeMode == 0)
+            {
+                timeFrame = "";
+            }
+            else
+            {
+                timeFrame = "and weer.Maand = " + Convert.ToString(MasterChartConfig.TimeMode);
             }
             
             //Loop through all the entries
@@ -68,10 +89,11 @@ namespace Project3Groep1
              */
             string myQuery =
                     "Select count(ID), TemperatuurGem " +
-                    "From "+myTable+", weer " +
-                    "Where " + myTable + ".Dag = weer.Dag and " +
-                    "" + myTable + ".Maand = weer.Maand and " +
-                    "" + myTable + ".Jaar = weer.Jaar and TemperatuurGem is not null " +
+                    "From "+ tableUsed + ", weer " +
+                    "Where " + tableUsed + ".Dag = weer.Dag and " +
+                    "" + tableUsed + ".Maand = weer.Maand and " +
+                    "" + tableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null " 
+                    + timeFrame + precip +
                     "Group by TemperatuurGem;";
             Console.WriteLine(myQuery);
             List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
@@ -89,7 +111,7 @@ namespace Project3Groep1
 
                 barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
             }
-            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
+            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + PrecipMode + " " + "TABLE " + tableUsed);
             FlipEnabledAllButtons();
             return true;
         }
@@ -209,10 +231,12 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
+                barChart.Series[0].Name = "Straatroof";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
+                barChart.Series[0].Name = "Fietsendiefstal";
             }
 
             updateChart(); //We pressed a button, so update the chart!
@@ -224,9 +248,6 @@ namespace Project3Groep1
             updateChart();
         }
 
-        private void toolTip2_Popup(object sender, PopupEventArgs e)
-        {
 
-        }
     }
 }
