@@ -46,36 +46,68 @@ namespace Project3Groep1
             * AND BUILD OUR QUERY OUT OF THAT!
             */
             //set up variables for use in our looped checks...
-            int myPrecipitationMode = MasterChartConfig.PrecipitationMode;
-            bool mySubgroupData = MasterChartConfig.SubGroupData;
-            string myTable;
-            int myTotalCount = 0;
-            string space = " ";
+            int PrecipMode = MasterChartConfig.PrecipitationMode;
+            bool subGroupBool = MasterChartConfig.SubGroupData;
 
-            if (mySubgroupData)
+            string tableUsed;
+            string precip;
+            string timeFrame;
+
+            if (subGroupBool)
             {
-                myTable = "fietsendiefstal";
+                tableUsed = "fietsendiefstal";
             }
             else
             {
-                myTable = "straatroof";
+                tableUsed = "straatroof";
             }
-            //Loop through all days
-            for (int i = 1; i <= 100; i++)
+
+            if (MasterChartConfig.PrecipitationMode == 0)
             {
-                string myDay = Convert.ToString(i);
+                precip = "";
+            }
+            else
+            {
+                precip = "and (Regen = 1 or Sneeuw = 1) ";
+            }
+
+            if (MasterChartConfig.TimeMode == 0)
+            {
+                timeFrame = "";
+            }
+            else
+            {
+                timeFrame = "and weer.Maand = " + Convert.ToString(MasterChartConfig.TimeMode);
+            }
+            
+            //Loop through all the entries
+
+            /* 
+             * query that uses the table assigned above to select where the data will come from
+             * bit hard to read due to all the +es but it beats having one massive line
+             */
+            string myQuery =
+                    "Select count(ID), TemperatuurGem " +
+                    "From "+ tableUsed + ", weer " +
+                    "Where " + tableUsed + ".Dag = weer.Dag and " +
+                    "" + tableUsed + ".Maand = weer.Maand and " +
+                    "" + tableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null " 
+                    + timeFrame + precip +
+                    "Group by TemperatuurGem;";
+            Console.WriteLine(myQuery);
+            List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
+            Console.WriteLine(myCountResult);
+            foreach (var mylistEntry in myCountResult)
+            {
                 //write query that gets weather data and checks it with primary data
                 //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
-                string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                Console.WriteLine(myCountQuery);
-                Console.WriteLine(i);
-                int myCountResult = myConnection.Count(myCountQuery);
-                Console.WriteLine(myCountResult);
-                int myTemp = 5; //temp magic number
-                myTotalCount = myTotalCount + myCountResult;
-                barChart.Series[0].Points.AddXY(i, myCountResult);
+                //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
+                int TempGemfive = mylistEntry.TempGem;
+                TempGemfive = Convert.ToInt32(Math.Round(TempGemfive / 50.0) * 50);
+
+                barChart.Series[0].Points.AddXY(TempGemfive / 10, mylistEntry.Count);
             }
-            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + myPrecipitationMode + " " + "TABLE " + myTable);
+            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + PrecipMode + " " + "TABLE " + tableUsed);
             FlipEnabledAllButtons();
             return true;
         }
@@ -195,10 +227,12 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
+                barChart.Series[0].Name = "Straatroof";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
+                barChart.Series[0].Name = "Fietsendiefstal";
             }
 
             updateChart(); //We pressed a button, so update the chart!
@@ -207,13 +241,8 @@ namespace Project3Groep1
         private void button1_Click(object sender, EventArgs e)
         {
             //Console.WriteLine("hello");
-            myConnection.dbSELECT("Select count(ID), TemperatuurGem From fietsendiefstal, weer Where fietsendiefstal.Dag = weer.Dag and fietsendiefstal.Maand = weer.Maand and fietsendiefstal.Jaar = weer.Jaar and TemperatuurGem is not null Group by TemperatuurGem;");
-            //updateChart();
+            updateChart();
         }
 
-        private void barChart_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
