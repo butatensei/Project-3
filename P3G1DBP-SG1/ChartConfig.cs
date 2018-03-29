@@ -53,5 +53,59 @@ namespace Project3Groep1
             SnowMode = 0;
             return true;
         }
+
+        public string BuildQuery()
+        {
+            string returnQuery = "";
+            string myTableUsed = "";
+            string myPrecipitation = "";
+            string myRain = "";
+            string myFrost = "";
+            string myTimeFrame = "";
+            if (SubGroupData)
+            {
+                myTableUsed = "fietsendiefstal";
+            }
+            else
+            {
+                myTableUsed = "straatroof";
+            }
+            if (SunMode == 2 && PrecipitationMode == 2)
+            {
+                myPrecipitation = myPrecipitation + "and (Neerslag = -2) ";
+            }
+            else 
+                if (SunMode == 2)
+                {
+                    myPrecipitation = myPrecipitation + "and (Neerslag != 0) ";
+                }
+                if (PrecipitationMode != 2)
+                {
+                    if (SnowMode == 2)
+                    {
+                        myFrost = "and (Sneeuw = 0) ";
+                    }
+                    if (RainMode == 2)
+                    {
+                        myRain = "and (Regen = 0) ";
+                    }
+                }
+                else
+                    myPrecipitation = myPrecipitation + "and (Neerslag = 0) ";
+            if (TimeMode != 0)
+            {
+                myTimeFrame = "and weer.Maand = " + Convert.ToString(TimeMode);
+            }
+            returnQuery =
+                    "Select count(ID), TemperatuurGem, Neerslag, Regen, Sneeuw " +
+                    "From " + myTableUsed + ", weer " +
+                    "Where " + myTableUsed + ".Dag = weer.Dag and " +
+                    "" + myTableUsed + ".Maand = weer.Maand and " +
+                    "" + myTableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null "
+                    + myTimeFrame + myPrecipitation + myRain + myFrost +
+                    "Group by TemperatuurGem;";
+
+            return returnQuery;
+        }
     }
 }
