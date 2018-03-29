@@ -23,15 +23,13 @@ namespace Project3Groep1
         {
             InitializeComponent();
             myConnection.updateDatabase();
+            GroepeerBox.SelectedItem = 5;
+            GroepeerBox.Text = "5";
         }
+
 
         private void maandButton_Click(object sender, EventArgs e)
         {
-            //MaandButton.Text = "MAAND";
-            /*
-             * TODO: PASS MONTH MODE TO UPDATECHART()
-             * INSTEAD OF MAKING IT DO EVERYTHING
-            */
             updateChart();
         }
 
@@ -39,75 +37,19 @@ namespace Project3Groep1
         {
             FlipEnabledAllButtons();
             barChart.Series[0].Points.Clear(); //clear the chart for starters
-            /*
-            * TODO: SCALABILITY
-            * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
-            * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
-            * AND BUILD OUR QUERY OUT OF THAT!
-            */
-            //set up variables for use in our looped checks...
-            int PrecipMode = MasterChartConfig.PrecipitationMode;
-            bool subGroupBool = MasterChartConfig.SubGroupData;
-
-            string tableUsed;
-            string precip;
-            string timeFrame;
-
-            if (subGroupBool)
+            //moved query to master chart config class
+            string myQuery = MasterChartConfig.BuildQuery(); // get proper query from master config
+            Console.WriteLine(myQuery); //debug
+            List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery); //exec query
+            Console.WriteLine(myCountResult); //debug, query results
+            foreach (var mylistEntry in myCountResult) //loop through query results
             {
-                tableUsed = "fietsendiefstal";
+                int TempGemround = mylistEntry.TempGem;
+                int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
+                TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
+                barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
             }
-            else
-            {
-                tableUsed = "straatroof";
-            }
-
-            if (MasterChartConfig.PrecipitationMode == 0)
-            {
-                precip = "";
-            }
-            else
-            {
-                precip = "and (Regen = 1 or Sneeuw = 1) ";
-            }
-
-            if (MasterChartConfig.TimeMode == 0)
-            {
-                timeFrame = "";
-            }
-            else
-            {
-                timeFrame = "and weer.Maand = " + Convert.ToString(MasterChartConfig.TimeMode);
-            }
-            
-            //Loop through all the entries
-
-            /* 
-             * query that uses the table assigned above to select where the data will come from
-             * bit hard to read due to all the +es but it beats having one massive line
-             */
-            string myQuery =
-                    "Select count(ID), TemperatuurGem " +
-                    "From "+ tableUsed + ", weer " +
-                    "Where " + tableUsed + ".Dag = weer.Dag and " +
-                    "" + tableUsed + ".Maand = weer.Maand and " +
-                    "" + tableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null " 
-                    + timeFrame + precip +
-                    "Group by TemperatuurGem;";
-            Console.WriteLine(myQuery);
-            List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
-            Console.WriteLine(myCountResult);
-            foreach (var mylistEntry in myCountResult)
-            {
-                //write query that gets weather data and checks it with primary data
-                //Going to have to write a new function in DBConnect that doesn't use count, but returns tuples.
-                //string myCountQuery = "SELECT COUNT(ID) from " + myTable + " WHERE Dag=" + myDay;
-                int TempGemfive = mylistEntry.TempGem;
-                TempGemfive = Convert.ToInt32(Math.Round(TempGemfive / 50.0) * 50);
-
-                barChart.Series[0].Points.AddXY(TempGemfive / 10, mylistEntry.Count);
-            }
-            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + PrecipMode + " " + "TABLE " + tableUsed);
+            Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();
             return true;
         }
@@ -179,7 +121,7 @@ namespace Project3Groep1
         }
 
         /// <summary>
-        /// Flips 'enabled' property of a button
+        /// Flips 'enabled' property of all buttons, causing UI to grey out or re-color
         /// </summary>
         public void FlipEnabledAllButtons()
         {
@@ -227,12 +169,10 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
-                barChart.Series[0].Name = "Straatroof";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
-                barChart.Series[0].Name = "Fietsendiefstal";
             }
 
             updateChart(); //We pressed a button, so update the chart!
@@ -244,5 +184,9 @@ namespace Project3Groep1
             updateChart();
         }
 
+        private void toolTip2_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }
