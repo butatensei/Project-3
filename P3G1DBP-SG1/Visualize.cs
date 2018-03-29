@@ -61,7 +61,7 @@ namespace Project3Groep1
                 myTable = "straatroof";
             }
             //Loop through all days
-            for (int i = 1; i <= 365; i++)
+            for (int i = 1; i <= 100; i++)
             {
                 string myDay = Convert.ToString(i);
                 //write query that gets weather data and checks it with primary data
@@ -211,5 +211,9 @@ namespace Project3Groep1
             //updateChart();
         }
 
+        private void barChart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
