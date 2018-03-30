@@ -67,6 +67,7 @@ namespace Project3Groep1
             string dailyA = "";
             string dailyB = "";
             string dailyC = "";
+            string dailyD = "";
             if (SubGroupData)
             {
                 myTableUsed = "fietsendiefstal";
@@ -107,18 +108,20 @@ namespace Project3Groep1
             if (daily)
             {
                 dailyA = "TemperatuurGem as ";
-                dailyB = "and TemperatuurGem is not null ";
-                dailyC = "Gem"; ;
+                dailyB = "Dag";
+                dailyC = "and TemperatuurGem is not null ";
+                dailyD = "Gem"; ;
             }
             returnQuery =
-                    "Select count(ID)," + dailyA + "Temperatuur, Neerslag, Regen, Sneeuw " +
+                    "Select count(ID)," + dailyA + "Temperatuur, Neerslag, Regen" 
+                    + dailyB + ", Sneeuw" + dailyB + " " +
                     "From " + myTableUsed + ", weer " +
                     "Where " + myTableUsed + ".Dag = weer.Dag and "
                     + myTableUsed + ".Maand = weer.Maand and "
                      + myTableUsed + ".Jaar = weer.Jaar and " + myTableUsed + 
                      ".Tijd = weer.Tijd and " + myTableUsed + ".Jaar = 2011 "
-                    + myTimeFrame + myPrecipitation + myRain + myFrost + dailyB +
-                    "Group by Temperatuur" + dailyC + ";";
+                    + myTimeFrame + myPrecipitation + myRain + myFrost + dailyC +
+                    "Group by Temperatuur" + dailyD + ";";
 
             return returnQuery;
         }
