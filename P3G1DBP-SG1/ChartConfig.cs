@@ -77,33 +77,34 @@ namespace Project3Groep1
             else 
                 if (SunMode == 2)
                 {
-                    myPrecipitation = myPrecipitation + "and (Neerslag != 0) ";
+                    myPrecipitation = myPrecipitation + "and (Regen = 1 or Sneeuw = 1) ";
                 }
-                if (PrecipitationMode != 2)
+            if (PrecipitationMode != 2)
+            {
+                if (SnowMode == 2)
                 {
-                    if (SnowMode == 2)
-                    {
-                        myFrost = "and (Sneeuw = 0) ";
-                    }
-                    if (RainMode == 2)
-                    {
-                        myRain = "and (Regen = 0) ";
-                    }
+                    myFrost = "and Sneeuw = 0 ";
                 }
-                else
-                    myPrecipitation = myPrecipitation + "and (Neerslag = 0) ";
+                if (RainMode == 2)
+                {
+                    myRain = "and Regen = 0 ";
+                }
+            }
+            if (PrecipitationMode == 2)
+            { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }
             if (TimeMode != 0)
             {
                 myTimeFrame = "and weer.Maand = " + Convert.ToString(TimeMode);
             }
             returnQuery =
-                    "Select count(ID), TemperatuurGem, Neerslag, Regen, Sneeuw " +
+                    "Select count(ID), Temperatuur, Neerslag, Regen, Sneeuw " +
                     "From " + myTableUsed + ", weer " +
-                    "Where " + myTableUsed + ".Dag = weer.Dag and " +
-                    "" + myTableUsed + ".Maand = weer.Maand and " +
-                    "" + myTableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null "
+                    "Where " + myTableUsed + ".Dag = weer.Dag and "
+                    + myTableUsed + ".Maand = weer.Maand and "
+                     + myTableUsed + ".Jaar = weer.Jaar and " + myTableUsed + 
+                     ".Tijd = weer.Tijd and " + myTableUsed + ".Jaar = 2011 "
                     + myTimeFrame + myPrecipitation + myRain + myFrost +
-                    "Group by TemperatuurGem;";
+                    "Group by Temperatuur;";
 
             return returnQuery;
         }
