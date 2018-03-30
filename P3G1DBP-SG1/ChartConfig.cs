@@ -56,12 +56,17 @@ namespace Project3Groep1
 
         public string BuildQuery()
         {
+            bool daily = false;
+
             string returnQuery = "";
             string myTableUsed = "";
             string myPrecipitation = "";
             string myRain = "";
             string myFrost = "";
             string myTimeFrame = "";
+            string dailyA = "";
+            string dailyB = "";
+            string dailyC = "";
             if (SubGroupData)
             {
                 myTableUsed = "fietsendiefstal";
@@ -89,22 +94,31 @@ namespace Project3Groep1
                 {
                     myRain = "and Regen = 0 ";
                 }
+            
+
             }
+
             if (PrecipitationMode == 2)
             { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }
             if (TimeMode != 0)
             {
                 myTimeFrame = "and weer.Maand = " + Convert.ToString(TimeMode);
             }
+            if (daily)
+            {
+                dailyA = "TemperatuurGem as ";
+                dailyB = "and TemperatuurGem is not null ";
+                dailyC = "Gem"; ;
+            }
             returnQuery =
-                    "Select count(ID), Temperatuur, Neerslag, Regen, Sneeuw " +
+                    "Select count(ID)," + dailyA + "Temperatuur, Neerslag, Regen, Sneeuw " +
                     "From " + myTableUsed + ", weer " +
                     "Where " + myTableUsed + ".Dag = weer.Dag and "
                     + myTableUsed + ".Maand = weer.Maand and "
                      + myTableUsed + ".Jaar = weer.Jaar and " + myTableUsed + 
                      ".Tijd = weer.Tijd and " + myTableUsed + ".Jaar = 2011 "
-                    + myTimeFrame + myPrecipitation + myRain + myFrost +
-                    "Group by Temperatuur;";
+                    + myTimeFrame + myPrecipitation + myRain + myFrost + dailyB +
+                    "Group by Temperatuur" + dailyC + ";";
 
             return returnQuery;
         }
