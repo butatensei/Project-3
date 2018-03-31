@@ -127,7 +127,7 @@ namespace Project3Groep1
                     list.Add(new CountTemp
                     {
                         Count = Convert.ToInt32(dataReader["Count(ID)"]),
-                        TempGem = Convert.ToInt32(dataReader["TemperatuurGem"])
+                        TempGem = Convert.ToInt32(dataReader["Temperatuur"])
 
                     });
                     /*
