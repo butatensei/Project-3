@@ -37,105 +37,12 @@ namespace Project3Groep1
         {
             FlipEnabledAllButtons();
             barChart.Series[0].Points.Clear(); //clear the chart for starters
-<<<<<<< HEAD
-            /*
-            * TODO: SCALABILITY
-            * INSTEAD OF DEFININING THE QUERY IN HERE, WE SHOULD MAKE EVERY BIT VARIABLE
-            * AND COMBINE A BUNCH OF PASSED VARIABLES FROM THE BUTTONS
-            * AND BUILD OUR QUERY OUT OF THAT!
-            */
-            //set up variables for use in our looped checks...
-            int PrecipMode = MasterChartConfig.PrecipitationMode;
-            bool subGroupBool = MasterChartConfig.SubGroupData;
-
-            string tableUsed;
-            string precip;
-            string timeFrame;
-
-            if (subGroupBool)
-            {
-                tableUsed = "fietsendiefstal";
-            }
-            else
-            {
-                tableUsed = "straatroof";
-            }
-
-            if (MasterChartConfig.PrecipitationMode == 0)
-            {
-                precip = "";
-            }
-            else
-            {
-                precip = "and (Regen = 1 or Sneeuw = 1) ";
-            }
-
-            if (MasterChartConfig.TimeMode == 0)
-            {
-                timeFrame = "";
-            }
-            else
-            {
-                timeFrame = "and weer.Maand = " + Convert.ToString(MasterChartConfig.TimeMode);
-            }
-            
-            //Loop through all the entries
-
-            /* 
-             * query that uses the table assigned above to select where the data will come from
-             * bit hard to read due to all the +es but it beats having one massive line
-             */
-            string myQuery =
-                    "Select count(ID), TemperatuurGem " +
-                    "From "+ tableUsed + ", weer " +
-                    "Where " + tableUsed + ".Dag = weer.Dag and " +
-                    "" + tableUsed + ".Maand = weer.Maand and " +
-                    "" + tableUsed + ".Jaar = weer.Jaar and TemperatuurGem is not null " 
-                    + timeFrame + precip +
-                    "Group by TemperatuurGem;";
-            Console.WriteLine(myQuery);
-            List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery);
-            Console.WriteLine(myCountResult);
-
-            List<Tuple<string, double>> items = new List<Tuple<string, double>>()
-            {
-                new Tuple<string,double>("q", .5),
-                new Tuple<string,double>("d", 1.5),
-                new Tuple<string,double>("j", .7),
-                new Tuple<string,double>("h", .8),
-                new Tuple<string,double>("q", .5)
-
-
-            };
-
-            
-            var sumvalue = items.Sum(c => c.Item2); // Calculates sum of all values
-            
-            var betweensum = items.SkipWhile(x => x.Item1 == "q") // Skip until matching item1            
-                .TakeWhile(x => x.Item1 != "q") // take until matching item1
-                .Sum(x => x.Item2); // Sum
-
-            int gid = 0;
-            items.Select(c => new { Tuple = c, gid = c.Item1 == "q" ? ++gid : gid })
-                .GroupBy(x => x.gid)
-                .Where(x => x.Key % 2 == 1)
-                .SelectMany(x => x.Skip(1))
-                .Sum(x => x.Tuple.Item2);
-
-            foreach (var item in items)
-            {
-                Console.WriteLine();
-            }
-
-            foreach (var mylistEntry in myCountResult)
-=======
             //moved query to master chart config class
             string myQuery = MasterChartConfig.BuildQuery(); // get proper query from master config
             Console.WriteLine(myQuery); //debug
             List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery); //exec query
             Console.WriteLine(myCountResult); //debug, query results
             foreach (var mylistEntry in myCountResult) //loop through query results
->>>>>>> origin/DudeBranch
             {
                 int TempGemround = mylistEntry.TempGem;
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
