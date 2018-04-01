@@ -53,5 +53,77 @@ namespace Project3Groep1
             SnowMode = 0;
             return true;
         }
+
+        public string BuildQuery()
+        {
+            bool daily = false;
+
+            string returnQuery = "";
+            string myTableUsed = "";
+            string myPrecipitation = "";
+            string myRain = "";
+            string myFrost = "";
+            string myTimeFrame = "";
+            string dailyA = "";
+            string dailyB = "";
+            string dailyC = "";
+            string dailyD = "";
+            if (SubGroupData)
+            {
+                myTableUsed = "fietsendiefstal";
+            }
+            else
+            {
+                myTableUsed = "straatroof";
+            }
+            if (SunMode == 2 && PrecipitationMode == 2)
+            {
+                myPrecipitation = myPrecipitation + "and (Neerslag = -2) ";
+            }
+            else 
+                if (SunMode == 2)
+                {
+                    myPrecipitation = myPrecipitation + "and (Regen = 1 or Sneeuw = 1) ";
+                }
+            if (PrecipitationMode != 2)
+            {
+                if (SnowMode == 2)
+                {
+                    myFrost = "and Sneeuw = 0 ";
+                }
+                if (RainMode == 2)
+                {
+                    myRain = "and Regen = 0 ";
+                }
+            
+
+            }
+
+            if (PrecipitationMode == 2)
+            { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }
+            if (TimeMode != 0)
+            {
+                myTimeFrame = "and weer.Maand = " + Convert.ToString(TimeMode);
+            }
+            if (daily)
+            {
+                dailyA = "TemperatuurGem as ";
+                dailyB = "Dag";
+                dailyC = "and TemperatuurGem is not null ";
+                dailyD = "Gem"; ;
+            }
+            returnQuery =
+                    "Select count(ID)," + dailyA + "Temperatuur, Neerslag, Regen" 
+                    + dailyB + ", Sneeuw" + dailyB + " " +
+                    "From " + myTableUsed + ", weer " +
+                    "Where " + myTableUsed + ".Dag = weer.Dag and "
+                    + myTableUsed + ".Maand = weer.Maand and "
+                     + myTableUsed + ".Jaar = weer.Jaar and " + myTableUsed + 
+                     ".Tijd = weer.Tijd and " + myTableUsed + ".Jaar = 2011 "
+                    + myTimeFrame + myPrecipitation + myRain + myFrost + dailyC +
+                    "Group by Temperatuur" + dailyD + ";";
+
+            return returnQuery;
+        }
     }
 }
