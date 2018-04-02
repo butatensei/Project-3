@@ -76,22 +76,22 @@ namespace Project3Groep1
             {
                 myTableUsed = "straatroof";
             }
-            if (SunMode == 2 && PrecipitationMode == 2)
+            if (SunMode == 1 && PrecipitationMode == 1)
             {
                 myPrecipitation = myPrecipitation + "and (Neerslag = -2) ";
             }
             else 
-                if (SunMode == 2)
+                if (SunMode == 1)
                 {
                     myPrecipitation = myPrecipitation + "and (Regen = 1 or Sneeuw = 1) ";
                 }
-            if (PrecipitationMode != 2)
+            if (PrecipitationMode != 1)
             {
-                if (SnowMode == 2)
+                if (SnowMode == 1)
                 {
                     myFrost = "and Sneeuw = 0 ";
                 }
-                if (RainMode == 2)
+                if (RainMode == 1)
                 {
                     myRain = "and Regen = 0 ";
                 }
@@ -99,7 +99,7 @@ namespace Project3Groep1
 
             }
 
-            if (PrecipitationMode == 2)
+            if (PrecipitationMode == 1)
             { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }
             if (TimeMode != 0)
             {

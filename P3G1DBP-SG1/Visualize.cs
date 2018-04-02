@@ -23,8 +23,8 @@ namespace Project3Groep1
         {
             InitializeComponent();
             myConnection.updateDatabase();
-            GroepeerBox.SelectedItem = 5;
-            GroepeerBox.Text = "5";
+            this.Text = "Fietsendiefstal & het weer";
+            updateChart();
         }
 
 
@@ -45,7 +45,7 @@ namespace Project3Groep1
             foreach (var mylistEntry in myCountResult) //loop through query results
             {
                 int TempGemround = mylistEntry.TempGem;
-                int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
+                int RoundNumber = Convert.ToInt32(1) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
                 //barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
                 barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
@@ -83,17 +83,10 @@ namespace Project3Groep1
              * THE BUTTON SHOULD LOOK DISABLED, POSSIBLY CROSSED OUT OR RED
             */
 
-            if (passedVariable < 2)
+            if (passedVariable < 1)
             {
                 passedVariable++;
-                if (passedVariable == 1)
-                {
-                    passedButton.ForeColor = System.Drawing.Color.DodgerBlue;
-                }
-                else
-                {
-                    passedButton.ForeColor = System.Drawing.Color.DarkRed;
-                }
+                passedButton.ForeColor = System.Drawing.Color.DarkRed;
             }
             else
             {
@@ -170,10 +163,16 @@ namespace Project3Groep1
             if (MasterChartConfig.SubGroupData) //true, straatroof
             {
                 SubGroupButton.Text = "💰";
+                barChart.Series[0].Name = "Straatroof";
+                this.Text = "Straatroof & het weer";
+                labelY.Text = "straatroven";
             }
             else //false, fietsendiefstal
             {
                 SubGroupButton.Text = "🚲";
+                barChart.Series[0].Name = "Fietsendiefstal";
+                this.Text = "Fietsendiefstal & het weer";
+                labelY.Text = "fietsendiefstallen";
             }
 
             updateChart(); //We pressed a button, so update the chart!
