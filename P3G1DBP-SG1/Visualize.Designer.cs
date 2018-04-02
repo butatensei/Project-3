@@ -31,18 +31,15 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.barChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.WeatherButton = new System.Windows.Forms.Button();
             this.RainButton = new System.Windows.Forms.Button();
             this.FrostButton = new System.Windows.Forms.Button();
             this.SubGroupButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.sunButton = new System.Windows.Forms.Button();
-            this.GroepeerBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,22 +56,7 @@
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
             series1.Legend = "Legend1";
             series1.Name = "Fietsendiefstallen";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series2.Legend = "Legend1";
-            series2.Name = "Neerslag";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series3.Legend = "Legend1";
-            series3.Name = "Sneeuw";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-            series4.Legend = "Legend1";
-            series4.Name = "Regen";
             this.barChart.Series.Add(series1);
-            this.barChart.Series.Add(series2);
-            this.barChart.Series.Add(series3);
-            this.barChart.Series.Add(series4);
             this.barChart.Size = new System.Drawing.Size(614, 322);
             this.barChart.TabIndex = 1;
             this.barChart.Text = "ShowData";
@@ -131,17 +113,6 @@
             this.SubGroupButton.UseVisualStyleBackColor = true;
             this.SubGroupButton.Click += new System.EventHandler(this.SubGroupButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F);
-            this.button1.Location = new System.Drawing.Point(369, 351);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(264, 74);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "update";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // sunButton
             // 
             this.sunButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -155,28 +126,32 @@
             this.sunButton.UseVisualStyleBackColor = true;
             this.sunButton.Click += new System.EventHandler(this.sunButton_Click);
             // 
-            // GroepeerBox
+            // label1
             // 
-            this.GroepeerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GroepeerBox.FormattingEnabled = true;
-            this.GroepeerBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "4",
-            "5"});
-            this.GroepeerBox.Location = new System.Drawing.Point(621, 279);
-            this.GroepeerBox.Name = "GroepeerBox";
-            this.GroepeerBox.Size = new System.Drawing.Size(121, 21);
-            this.GroepeerBox.TabIndex = 11;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(369, 329);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "temperatuur in C°";
+            // 
+            // labelY
+            // 
+            this.labelY.AutoSize = true;
+            this.labelY.Location = new System.Drawing.Point(157, 32);
+            this.labelY.Name = "labelY";
+            this.labelY.Size = new System.Drawing.Size(85, 13);
+            this.labelY.TabIndex = 12;
+            this.labelY.Text = "fietsendiefstallen";
             // 
             // Visualize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.GroepeerBox);
+            this.Controls.Add(this.labelY);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.sunButton);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.SubGroupButton);
             this.Controls.Add(this.FrostButton);
             this.Controls.Add(this.RainButton);
@@ -186,6 +161,7 @@
             this.Text = "Fietsenfiefstallen & het Weer";
             ((System.ComponentModel.ISupportInitialize)(this.barChart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,9 +171,9 @@
         private System.Windows.Forms.Button RainButton;
         private System.Windows.Forms.Button FrostButton;
         private System.Windows.Forms.Button SubGroupButton;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button sunButton;
-        private System.Windows.Forms.ComboBox GroepeerBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelY;
     }
 }
 
