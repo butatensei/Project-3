@@ -99,8 +99,8 @@ namespace Project3Groep1
 
             }
 
-            if (PrecipitationMode == 2)
-            { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }
+            /*if (PrecipitationMode == 2)
+            { myPrecipitation = myPrecipitation + "and Sneeuw = 0 and Regen = 0 "; }*/
             if (TimeMode != 0)
             {
                 myTimeFrame = "and weer.Maand = " + Convert.ToString(TimeMode);

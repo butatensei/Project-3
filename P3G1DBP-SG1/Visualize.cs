@@ -36,7 +36,12 @@ namespace Project3Groep1
         public bool updateChart()
         {
             FlipEnabledAllButtons();
-            barChart.Series[0].Points.Clear(); //clear the chart for starters
+            //clear the chart for starters
+            barChart.Series[0].Points.Clear(); 
+            barChart.Series[1].Points.Clear();
+            barChart.Series[2].Points.Clear();
+            barChart.Series[3].Points.Clear();
+            Console.WriteLine("***********************");
             //moved query to master chart config class
             string myQuery = MasterChartConfig.BuildQuery(); // get proper query from master config
             Console.WriteLine(myQuery); //debug
@@ -47,7 +52,16 @@ namespace Project3Groep1
                 int TempGemround = mylistEntry.TempGem;
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
-                barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
+
+
+                if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
+                {
+                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { Console.WriteLine("RAIN" + mylistEntry.Neerslag); barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { Console.WriteLine("SNOW" + mylistEntry.Neerslag); barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                }
+                else { Console.WriteLine("st" + mylistEntry.Neerslag + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();

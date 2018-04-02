@@ -103,6 +103,10 @@ namespace Project3Groep1
         {
             public int Count { get; set; }
             public int TempGem { get; set; }
+            public int Neerslag { get; set; }
+            public bool Regen { get; set; }
+            public bool Sneeuw { get; set; }
+
         }
 
 
@@ -127,16 +131,22 @@ namespace Project3Groep1
                     list.Add(new CountTemp
                     {
                         Count = Convert.ToInt32(dataReader["Count(ID)"]),
-                        TempGem = Convert.ToInt32(dataReader["Temperatuur"])
-
+                        TempGem = Convert.ToInt32(dataReader["Temperatuur"]),
+                        Neerslag = Convert.ToInt32(dataReader["Neerslag"]),
+                        Regen = Convert.ToBoolean(dataReader["Regen"]),
+                        Sneeuw = Convert.ToBoolean(dataReader["Sneeuw"])
                     });
                     /*
-                    foreach (var temp in list)
+                    foreach (var temp in list) //debug
                     {
-                        Console.WriteLine(string.Format("{0} {1}",
+                        Console.WriteLine(string.Format("{0} {1} {2} {3} {4}",
                             temp.Count,
-                            temp.TempGem));
-                    }*/// debug no longer needed 😎
+                            temp.TempGem,
+                            temp.Neerslag,
+                            temp.Regen,
+                            temp.Sneeuw
+                            ));
+                    }//end debug*/
                 }
 
                 //close datareader
