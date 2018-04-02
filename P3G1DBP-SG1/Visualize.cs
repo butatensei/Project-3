@@ -47,6 +47,7 @@ namespace Project3Groep1
                 int TempGemround = mylistEntry.TempGem;
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
+                //barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
                 barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
