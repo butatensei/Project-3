@@ -71,19 +71,31 @@ namespace Project3Groep1
                 }
                 else { Console.WriteLine("st" + space +  mylistEntry.Count + space + mylistEntry.Neerslag + space + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                 //barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);*/
-                if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
+                /*if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
                 {
                     if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { myHoldingList[2].Add(mylistEntry.Count); }
                     else if (mylistEntry.Neerslag != 0) { myHoldingList[1].Add(mylistEntry.Count); }
                     if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { myHoldingList[3].Add(mylistEntry.Count); }
                     else if (mylistEntry.Neerslag != 0) { myHoldingList[1].Add(mylistEntry.Count); }
                 }
+                else { myHoldingList[0].Add(mylistEntry.Count); }*/
+                if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
+                {
+                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { myHoldingList[2][2] = myHoldingList[2][2] + mylistEntry.Count; }
+                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1][1] = myHoldingList[1][1] + mylistEntry.Count; }
+                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { myHoldingList[3][3] = myHoldingList[3][3] + mylistEntry.Count; }
+                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1][1] = myHoldingList[1][1] + mylistEntry.Count; }
+                }
                 else { myHoldingList[0].Add(mylistEntry.Count); }
+                myHoldingList[0][0] = myHoldingList[0][0] + mylistEntry.Count;
             }
-
+            /*
+             * IF 
+             * 
+             */
             foreach (var myListEntry in myHoldingList)
                 Console.WriteLine(myHoldingList[0][0]);
-                barChart.Series[0].Points.AddXY(50 / 10, myHoldingList[0][0]);
+                barChart.Series[0].Points.AddXY(50 / 10, myListEntry[0]);
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();
             return true;
