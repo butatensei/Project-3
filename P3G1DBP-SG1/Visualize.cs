@@ -95,7 +95,7 @@ namespace Project3Groep1
              */
             foreach (var myListEntry in myHoldingList)
                 Console.WriteLine(myHoldingList[0][0]);
-                barChart.Series[0].Points.AddXY(50 / 10, myListEntry[0]);
+                barChart.Series[0].Points.AddXY(50 / 10, myHoldingList[0]);
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();
             return true;
