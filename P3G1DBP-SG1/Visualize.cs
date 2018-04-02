@@ -23,8 +23,8 @@ namespace Project3Groep1
         {
             InitializeComponent();
             myConnection.updateDatabase();
-            GroepeerBox.SelectedItem = 5;
-            GroepeerBox.Text = "5";
+            GroepeerBox.SelectedItem = 1;
+            GroepeerBox.Text = "1";
         }
 
 
@@ -41,6 +41,7 @@ namespace Project3Groep1
             barChart.Series[1].Points.Clear();
             barChart.Series[2].Points.Clear();
             barChart.Series[3].Points.Clear();
+            barChart.Series[4].Points.Clear();
             Console.WriteLine("***********************");
             //moved query to master chart config class
             string myQuery = MasterChartConfig.BuildQuery(); // get proper query from master config
@@ -53,15 +54,31 @@ namespace Project3Groep1
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
 
+                //start with the filters
+                if (MasterChartConfig.SunMode == 2 && mylistEntry.Neerslag == 0) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.SnowMode == 2 && mylistEntry.Sneeuw) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.RainMode == 2 && mylistEntry.Regen) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.PrecipitationMode == 2 && mylistEntry.Neerslag != 0) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
 
-                if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
+                //now the highlights
+                else if (MasterChartConfig.SunMode == 1 && mylistEntry.Neerslag == 0) { barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                else if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { barChart.Series[4].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                else if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                else if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0) { barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+
+                //else just throw it in the pile
+                else if (mylistEntry.Neerslag != 0 || mylistEntry.Neerslag == 0) { barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+
+
+
+                /*if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
                 {
                     if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { Console.WriteLine("RAIN" + mylistEntry.Neerslag); barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                     else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                     if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { Console.WriteLine("SNOW" + mylistEntry.Neerslag); barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                     else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                 }
-                else { Console.WriteLine("st" + mylistEntry.Neerslag + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                else { Console.WriteLine("st" + mylistEntry.Neerslag + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }*/
             }
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();
