@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
 
@@ -42,6 +43,11 @@ namespace Project3Groep1
             barChart.Series[2].Points.Clear();
             barChart.Series[3].Points.Clear();
             barChart.Series[4].Points.Clear();
+            barChart.Series[0].Points.AddXY(0, 0);
+            barChart.Series[1].Points.AddXY(0, 0);
+            barChart.Series[2].Points.AddXY(0, 0);
+            barChart.Series[3].Points.AddXY(0, 0);
+            barChart.Series[4].Points.AddXY(0, 0);
             Console.WriteLine("***********************");
             //moved query to master chart config class
             string myQuery = MasterChartConfig.BuildQuery(); // get proper query from master config
@@ -54,21 +60,35 @@ namespace Project3Groep1
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
 
+                DataPoint mybarZero = barChart.Series[0].Points.FindMaxByValue("Y1", 0);
+                DataPoint mybarOne = barChart.Series[1].Points.FindMaxByValue("Y1", 0);
+                DataPoint mybarTwo = barChart.Series[2].Points.FindMaxByValue("Y1", 0);
+                DataPoint mybarThree = barChart.Series[3].Points.FindMaxByValue("Y1", 0);
+                DataPoint mybarFour = barChart.Series[4].Points.FindMaxByValue("Y1", 0);
+
+                Console.WriteLine(mybarZero);
+
+                int barZero = Convert.ToInt32(mybarZero.YValues[0]);
+                int barOne = Convert.ToInt32(mybarOne.YValues[0]);
+                int barTwo = Convert.ToInt32(mybarTwo.YValues[0]);
+                int barThree = Convert.ToInt32(mybarThree.YValues[0]);
+                int barFour = Convert.ToInt32(mybarFour.YValues[0]);
+
                 //start with the filters
-                if (MasterChartConfig.SunMode == 2 && mylistEntry.Neerslag == 0) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
-                else if (MasterChartConfig.SnowMode == 2 && mylistEntry.Sneeuw) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
-                else if (MasterChartConfig.RainMode == 2 && mylistEntry.Regen) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
-                else if (MasterChartConfig.PrecipitationMode == 2 && mylistEntry.Neerslag != 0) { Console.WriteLine("FILTER " + mylistEntry.Neerslag); }
+                if (MasterChartConfig.SunMode == 2 && mylistEntry.Neerslag == 0) { Console.WriteLine("FILTERED ZON " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.SnowMode == 2 && mylistEntry.Sneeuw) { Console.WriteLine("FILTERED SNEEUW " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.RainMode == 2 && mylistEntry.Regen) { Console.WriteLine("FILTERED REGEN " + mylistEntry.Neerslag); }
+                else if (MasterChartConfig.PrecipitationMode == 2 && mylistEntry.Neerslag != 0) { Console.WriteLine("FILTERED NEERSLAG " + mylistEntry.Neerslag); }
 
                 //now the highlights
-                else if (MasterChartConfig.SunMode == 1 && mylistEntry.Neerslag == 0) { barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                else if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { barChart.Series[4].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                else if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                else if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0) { barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                else if (MasterChartConfig.SunMode == 1 && mylistEntry.Neerslag == 0) { barChart.Series[1].Points.AddXY(TempGemround / 10, barOne + 1); }
+                else if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { barChart.Series[4].Points.AddXY(TempGemround / 10, barFour + 1); }
+                else if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { barChart.Series[3].Points.AddXY(TempGemround / 10, barThree + 1); }
+                else if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0) { barChart.Series[2].Points.AddXY(TempGemround / 10, barTwo + 1); }
 
                 //else just throw it in the pile
-                else if (mylistEntry.Neerslag != 0 || mylistEntry.Neerslag == 0) { barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-
+                else if (mylistEntry.Neerslag != 0 || mylistEntry.Neerslag == 0) { barChart.Series[0].Points.AddXY(TempGemround / 10, barZero + 1); }
+                
 
 
                 /*if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)

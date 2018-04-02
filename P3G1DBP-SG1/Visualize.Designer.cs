@@ -58,6 +58,7 @@
             this.barChart.Name = "barChart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+            series1.EmptyPointStyle.AxisLabel = "temperatuur";
             series1.Legend = "Legend1";
             series1.Name = "Fietsendiefstallen";
             series2.ChartArea = "ChartArea1";
