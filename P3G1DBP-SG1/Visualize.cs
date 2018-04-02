@@ -36,7 +36,6 @@ namespace Project3Groep1
         public bool updateChart()
         {
             FlipEnabledAllButtons();
-            string space = " ";
             //clear the chart for starters
             barChart.Series[0].Points.Clear(); 
             barChart.Series[1].Points.Clear();
@@ -48,54 +47,22 @@ namespace Project3Groep1
             Console.WriteLine(myQuery); //debug
             List<DBConnect.CountTemp> myCountResult = myConnection.DBselect(myQuery); //exec query
             Console.WriteLine(myCountResult); //debug, query results
-
-            //I'm trying to set up the list we need to toss the vars in to make the bars work
-            List<int> [] myHoldingList = new List<int>[3];
-            myHoldingList[0] = new List<int>();
-            myHoldingList[1] = new List<int>();
-            myHoldingList[2] = new List<int>();
-
             foreach (var mylistEntry in myCountResult) //loop through query results
             {
                 int TempGemround = mylistEntry.TempGem;
                 int RoundNumber = Convert.ToInt32(GroepeerBox.SelectedItem) * 10;
                 TempGemround = Convert.ToInt32(Math.Round(TempGemround / (RoundNumber * 1.0)) * RoundNumber);
 
-                /*
+
                 if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
                 {
-                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { Console.WriteLine("RAIN" + mylistEntry.Count); barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Count); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { Console.WriteLine("SNOW" + mylistEntry.Count); barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Count); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { Console.WriteLine("RAIN" + mylistEntry.Neerslag); barChart.Series[2].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { Console.WriteLine("SNOW" + mylistEntry.Neerslag); barChart.Series[3].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
+                    else if (mylistEntry.Neerslag != 0) { Console.WriteLine("NEERSLAG" + mylistEntry.Neerslag); barChart.Series[1].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
                 }
-                else { Console.WriteLine("st" + space +  mylistEntry.Count + space + mylistEntry.Neerslag + space + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
-                //barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count);*/
-                /*if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
-                {
-                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { myHoldingList[2].Add(mylistEntry.Count); }
-                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1].Add(mylistEntry.Count); }
-                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { myHoldingList[3].Add(mylistEntry.Count); }
-                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1].Add(mylistEntry.Count); }
-                }
-                else { myHoldingList[0].Add(mylistEntry.Count); }*/
-                if (MasterChartConfig.PrecipitationMode == 1 && mylistEntry.Neerslag != 0)
-                {
-                    if (MasterChartConfig.RainMode == 1 && mylistEntry.Regen) { myHoldingList[2][2] = myHoldingList[2][2] + mylistEntry.Count; }
-                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1][1] = myHoldingList[1][1] + mylistEntry.Count; }
-                    if (MasterChartConfig.SnowMode == 1 && mylistEntry.Sneeuw) { myHoldingList[3][3] = myHoldingList[3][3] + mylistEntry.Count; }
-                    else if (mylistEntry.Neerslag != 0) { myHoldingList[1][1] = myHoldingList[1][1] + mylistEntry.Count; }
-                }
-                else { myHoldingList[0].Add(mylistEntry.Count); }
-                myHoldingList[0][0] = myHoldingList[0][0] + mylistEntry.Count;
+                else { Console.WriteLine("st" + mylistEntry.Neerslag + mylistEntry.Regen + mylistEntry.Sneeuw); barChart.Series[0].Points.AddXY(TempGemround / 10, mylistEntry.Count); }
             }
-            /*
-             * IF 
-             * 
-             */
-            foreach (var myListEntry in myHoldingList)
-                Console.WriteLine(myHoldingList[0][0]);
-                barChart.Series[0].Points.AddXY(50 / 10, myHoldingList[0]);
             Console.WriteLine("SETTINGS USED:" + "PRECIP MODE " + MasterChartConfig.PrecipitationMode + " " + "TABLE " + MasterChartConfig.SubGroupData);
             FlipEnabledAllButtons();
             return true;
